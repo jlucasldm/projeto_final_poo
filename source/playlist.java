@@ -106,4 +106,17 @@ public class Playlist{
         this.listaArtistas.add(artista);
     }
 
+    public String retornaDados(){
+        String musicas = "";
+        for(Musica aux : listaMusicas){
+            musicas += aux.retornaDados() + "___________" + "\n";
+        }
+        return "Playlist: " + this.nome + "\n" + 
+                "Id: " + this.id + "\n" + 
+                "Quantidade de faixas: " + this.qtdMusica + "\n" 
+                "Duracao: " + this.duracao + "\n" + 
+                "Autor: " + this.autor.getNome() + "\n" +
+                "___________" + musicas;
+    }
+
 }

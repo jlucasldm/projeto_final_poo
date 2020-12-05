@@ -79,4 +79,14 @@ public class Artista{
         this.listaUsuarios.add(usuario);
     }
 
+    public String retornaDados(){
+        String musicas = "";
+        for(Musica aux : listaMusicas){
+            musicas += aux.retornaDados() + "___________" + "\n";
+        }
+        return "Artista: " + this.nome + "\n" + 
+                "Id: " + this.id + "\n" +
+                "___________" + musicas;
+    }
+
 }

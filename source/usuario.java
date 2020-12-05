@@ -91,4 +91,14 @@ public class Usuario{
     public void adicionarPlaylist(Playlist playlist){
         this.listaPlaylists.add(playlist);
     }
+
+    public String retornaDados(){
+        String playlists = "";
+        for(Playlist aux : listaPlaylists){
+            playlists += aux.retornaDados() + "//////////" + "\n";
+        }
+        return "Genero: " + this.nome + "\n" + 
+                "Id: " + this.id + "\n" +
+                "//////////" + playlists;
+    }
 }

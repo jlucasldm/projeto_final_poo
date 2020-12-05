@@ -107,10 +107,15 @@ public class Album{
     }
 
     public String returnaDados(){
+        String musicas = "";
+        for(Musica aux : listaMusicas){
+            musicas += aux.retornaDados() + "___________" + "\n";
+        }
         return "Album: " + this.nome + "\n" + 
                 "Id: " + this.id + "\n" + 
                 "Duracao: " + this.duracao + "\n" + 
-                "Quantidade de faixas: " + this.qtdMusicas;
+                "Quantidade de faixas: " + this.qtdMusicas + "\n" +
+                "___________" + musicas;
     }
 
     //falta implementar o meotodo de reprodução

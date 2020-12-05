@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Musica{
     private String nome;
-    private String id;
+    private String id;  //setar como static
     private float duracao;
     private Artista artista;    //pode ter mais de um artista
     private Album album;
@@ -70,18 +70,16 @@ public class Musica{
     }
 
     public String retornaDados(){
+        String generos = "";
+        for(Genero aux : listaGeneros){
+            generos += aux.retornaDados() + "\n";
+        }
         return "Musica: " + this.nome + "\n" + 
-                "Id: " this.id + "\n" + 
+                "Id Musica: " this.id + "\n" + 
+                generos + "\n" +
                 "Duracao: " + this.duracao + "\n" + 
                 "Artista: " + this.artista.getNome() + "\n" +
                 "Album: " + this.album.getNome();
     }
 
-    /*
-    String nome;
-    private String id;
-    private float duracao;
-    private Artista artista;
-    private Album album;
-     */
 }

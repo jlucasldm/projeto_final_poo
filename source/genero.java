@@ -68,7 +68,7 @@ public class Genero{
 
     public String retornaDados(){
         return "Genero: " + this.nome + "\n" + 
-                "Id: " + this.id;
+                "Id Genero: " + this.id;
     }
     
 }
