@@ -80,13 +80,13 @@ public class Artista{
     }
 
     public String retornaDados(){
-        String musicas = "";
-        for(Musica aux : listaMusicas){
-            musicas += aux.retornaDados() + "___________" + "\n";
+        String usuarios = "";
+        for(Usuario aux : listaUsuarios){
+            usuarios += aux.retornaDados() + "||||||||||" + "\n";
         }
         return "Artista: " + this.nome + "\n" + 
                 "Id: " + this.id + "\n" +
-                "___________" + musicas;
+                "||||||||||" + usuarios;
     }
 
 }

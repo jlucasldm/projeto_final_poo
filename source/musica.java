@@ -82,4 +82,13 @@ public class Musica{
                 "Album: " + this.album.getNome();
     }
 
+    public void adicionarMusicaPlaylist(Playlist playlist){
+        playlist.adicionarMusica(this);
+    }
+
+    public void adicionarMusicaPlaylist(Playlist playlist, Musica musica){
+        playlist.adicionarMusica(musica);
+    }
+
+    //pensar sobre metodo de reproducao
 }

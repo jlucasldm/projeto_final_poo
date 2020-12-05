@@ -97,8 +97,47 @@ public class Usuario{
         for(Playlist aux : listaPlaylists){
             playlists += aux.retornaDados() + "//////////" + "\n";
         }
-        return "Genero: " + this.nome + "\n" + 
-                "Id: " + this.id + "\n" +
+        return "Usuario: " + this.nome + "\n" + 
+                "Id Usuario: " + this.id + "\n" +
                 "//////////" + playlists;
+    }
+
+    public void criarPlaylist(String nome, String id){
+        Playlist playlist = new Playlist(nome, id, this);
+        this.listaPlaylists.add(playlist);
+    }
+
+    public boolean removerPlaylist(Playlist playlist){
+        for(Playlist aux : this.listaPlaylists){
+            if(playlist.getId().equals(aux.getId())){
+                this.listaPlaylists.remove(playlist);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean adicionarMusicaPlaylist(Playlist playlist, Musica musica){
+        for(Playlist aux: this.listaPlaylists){
+            if(playlist.getId().equals(aux.getId())){
+                playlist.adicionarMusica(musica);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean removerMusicaPlaylist(Playlist playlist, Musica musica){
+        for(Playlist aux: this.listaPlaylists){
+            if(playlist.getId().equals(aux.getId())){
+                for(Musica mus : aux.getListaMusicas()){
+                    if(mus.getId().equals(musica.getId())){
+                        aux.getListaMusicas().remove(musica);
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }

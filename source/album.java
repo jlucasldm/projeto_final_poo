@@ -102,8 +102,14 @@ public class Album{
         }
     }
 
-    public void adicionarMusicaPlaylist(Playlist playlist, Musica musica){
-        playlist.adicionarMusica(aux);
+    public boolean adicionarMusicaPlaylist(Playlist playlist, Musica musica){
+        for(Musica aux: this.listaMusicas){
+            if(musica.getId().equals(aux.getId())){
+                playlist.adicionarMusica(musica);
+                return true;
+            }
+        }
+        return false;
     }
 
     public String returnaDados(){

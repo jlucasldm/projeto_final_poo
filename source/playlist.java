@@ -1,7 +1,6 @@
 //playlist e album são coletaneas de musicas. é pertinente utilizar uma classe abstrata
 import java.util.ArrayList;
 
-
 public class Playlist{
     private String nome;    //retorna
     private String id;  //retorna
@@ -119,4 +118,14 @@ public class Playlist{
                 "___________" + musicas;
     }
 
+    //pensar metodo de reproducao
+    public boolean removerMusica(Musica musica){
+        for(Musica aux: this.listaMusicas){
+            if(musica.getId().equals(aux.getId())){
+                this.listaMusicas.remove(musica);
+                return true;
+            }
+        }
+        return false;
+    }
 }
