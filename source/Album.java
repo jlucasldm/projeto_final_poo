@@ -1,85 +1,22 @@
 //playlist e album são coletaneas de musicas. é pertinente utilizar uma classe abstrata
 import java.util.ArrayList;
 
-public class Album{
-    private String nome; //retorna
-    private String id;  //retorna
-    private float duracao;  //é eum função da quantidade da duração de cada musica (isso ainda nao foi implementado)
-    private int qtdMusicas; //é eum função da quantidade de elementos da lista de musicas
-    //atributo estatico sinalizando a reproducao de musica
-    private ArrayList<Genero> listaGeneros = new ArrayList<Genero>();   //retorna
-    private ArrayList<Musica> listaMusicas = new ArrayList<Musica>();   //retorna
-    private ArrayList<Artista> listaArtistas = new ArrayList<Artista>();    //retorna
+public class Album extends Coletanea {
+    private Artista autorAlbum;
 
-    public Album(String nome, String id){
-        this.nome = nome;
-        this.id = id;
-        if(listaMusicas.size()==0){
-            this.duracao = 0;
-        }else{
-            this.duracao = 0;
-            for(Musica aux : listaMusicas){
-                this.duracao += aux.getDuracao();
-            }
-        }
-        this.qtdMusicas = listaMusicas.size();
+    public Album(String nome, String id, Artista autorAlbum){
+        super(nome, id);
+        this.autorAlbum = autorAlbum;
+        this.listaArtistas.add(autorAlbum);
     }
 
-    //gets e sets
-    public void setNome(String nome){
-        this.nome = nome;
+    // gets e sets
+    public Artista getAutorAlbum(){
+        return this.autorAlbum;
     }
 
-    public String getNome(){
-        return this.nome;
-    }
-
-    public void setId(String id){
-        this.id = id;
-    }
-
-    public String getId(){
-        return this.id;
-    }
-
-    public void setDuracao(float duracao){
-        this.duracao = duracao;
-    }
-
-    public float getDuracao(){
-        return this.duracao;
-    }
-
-    public void setQtdMusicas(int qtdMusicas){
-        this.qtdMusicas = qtdMusicas;
-    }
-
-    public float getQtdMusicas(){
-        return this.qtdMusicas;
-    }
-
-    public void setListaGeneros(ArrayList<Genero> listaGeneros){
-        this.listaGeneros = listaGeneros;
-    }
-
-    public ArrayList<Genero> getListaGeneros(){
-        return this.listaGeneros;
-    }
-
-    public void setListaMusicas(ArrayList<Musica> listaMusicas){
-        this.listaMusicas = listaMusicas;
-    }
-
-    public ArrayList<Musica> getListaMusicas(){
-        return this.listaMusicas;
-    }
-
-    public void setListaArtistas(ArrayList<Artista> listaArtistas){
-        this.listaArtistas = listaArtistas;
-    }
-
-    public ArrayList<Artista> getListaArtistas(){
-        return this.listaArtistas;
+    public void setAutorAlbum(Artista autorAlbum){
+        this.autorAlbum = autorAlbum;
     }
 
     //metodos
@@ -112,14 +49,14 @@ public class Album{
         return false;
     }
 
-    public String returnaDados(){
+    public String retornarDados(){
         String musicas = "";
         for(Musica aux : listaMusicas){
             musicas += aux.retornaDados() + "___________" + "\n";
         }
-        return "Album: " + this.nome + "\n" + 
-                "Id: " + this.id + "\n" + 
-                "Duracao: " + this.duracao + "\n" + 
+        return "Album: " + this.nome + "\n" +
+                "Id: " + this.id + "\n" +
+                "Duracao: " + this.duracao + "\n" +
                 "Quantidade de faixas: " + this.qtdMusicas + "\n" +
                 "___________" + musicas;
     }
