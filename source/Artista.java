@@ -26,7 +26,7 @@ public class Artista{
         this.id = id;
     }
 
-    public void getId(){
+    public String getId(){
         return this.id;
     }
 

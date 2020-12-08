@@ -1,17 +1,18 @@
 //playlist e album são coletaneas de musicas. é pertinente utilizar uma classe abstrata
 import java.util.ArrayList;
 
-public class Album{
-    private String nome; //retorna
+public class Playlist{
+    private String nome;    //retorna
     private String id;  //retorna
-    private float duracao;  //é eum função da quantidade da duração de cada musica (isso ainda nao foi implementado)
-    private int qtdMusicas; //é eum função da quantidade de elementos da lista de musicas
-    //atributo estatico sinalizando a reproducao de musica
+    private int qtdMusica;
+    private float duracao;  //retorna
+    private Usuario autor;  //retorna
+
     private ArrayList<Genero> listaGeneros = new ArrayList<Genero>();   //retorna
     private ArrayList<Musica> listaMusicas = new ArrayList<Musica>();   //retorna
     private ArrayList<Artista> listaArtistas = new ArrayList<Artista>();    //retorna
 
-    public Album(String nome, String id){
+    public Playlist(String nome, String id, Usuario autor){
         this.nome = nome;
         this.id = id;
         if(listaMusicas.size()==0){
@@ -22,7 +23,8 @@ public class Album{
                 this.duracao += aux.getDuracao();
             }
         }
-        this.qtdMusicas = listaMusicas.size();
+        this.qtdMusica = listaMusicas.size();
+        this.autor = autor;
     }
 
     //gets e sets
@@ -38,7 +40,7 @@ public class Album{
         this.id = id;
     }
 
-    public void getId(){
+    public String getId(){
         return this.id;
     }
 
@@ -51,11 +53,19 @@ public class Album{
     }
 
     public void setQtdMusicas(int qtdMusicas){
-        this.qtdMusicas = qtdMusicas;
+        this.qtdMusica = qtdMusicas;
     }
 
     public float getQtdMusicas(){
-        return this.qtdMusicas;
+        return this.qtdMusica;
+    }
+
+    public void setAutor(Usuario autor){
+        this.autor = autor;
+    }
+
+    public Usuario getAutor(){
+        return this.autor;
     }
 
     public void setListaGeneros(ArrayList<Genero> listaGeneros){
@@ -83,46 +93,39 @@ public class Album{
     }
 
     //metodos
-    public void adicionarMusica(Musica musica){
-        this.listaMusicas.add(musica);
-    }
-
     public void adicionarGenero(Genero genero){
         this.listaGeneros.add(genero);
+    }
+
+    public void adicionarMusica(Musica musica){
+        this.listaMusicas.add(musica);
     }
 
     public void adicionarArtista(Artista artista){
         this.listaArtistas.add(artista);
     }
 
-    //ajeitar para a aplicacao depois
-    public void adicionarMusicaPlaylist(Playlist playlist){
-        for(Musica aux : this.listaMusicas){
-            playlist.adicionarMusica(aux);
+    public String retornaDados(){
+        String musicas = "";
+        for(Musica aux : listaMusicas){
+            musicas += aux.retornaDados() + "___________" + "\n";
         }
+        return "Playlist: " + this.nome + "\n" +
+                "Id: " + this.id + "\n" +
+                "Quantidade de faixas: " + this.qtdMusica + "\n" +
+                "Duracao: " + this.duracao + "\n" +
+                "Autor: " + this.autor.getNome() + "\n" +
+                "___________" + musicas;
     }
 
-    public boolean adicionarMusicaPlaylist(Playlist playlist, Musica musica){
+    //pensar metodo de reproducao
+    public boolean removerMusica(Musica musica){
         for(Musica aux: this.listaMusicas){
             if(musica.getId().equals(aux.getId())){
-                playlist.adicionarMusica(musica);
+                this.listaMusicas.remove(musica);
                 return true;
             }
         }
         return false;
     }
-
-    public String returnaDados(){
-        String musicas = "";
-        for(Musica aux : listaMusicas){
-            musicas += aux.retornaDados() + "___________" + "\n";
-        }
-        return "Album: " + this.nome + "\n" + 
-                "Id: " + this.id + "\n" + 
-                "Duracao: " + this.duracao + "\n" + 
-                "Quantidade de faixas: " + this.qtdMusicas + "\n" +
-                "___________" + musicas;
-    }
-
-    //falta implementar o meotodo de reprodução
 }

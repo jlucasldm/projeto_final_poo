@@ -27,7 +27,7 @@ public class Usuario{
         this.id = id;
     }
 
-    public void getId(){
+    public String getId(){
         return this.id;
     }
 
@@ -48,11 +48,11 @@ public class Usuario{
     }
 
     public void setListaArtistas(ArrayList<Artista> listaArtistas){
-        this.listaArtistas = listaArtistas;
+        this.listaArtista = listaArtistas;
     }
 
     public ArrayList<Artista> getListaArtistas(){
-        return this.listaArtistas;
+        return this.listaArtista;
     }
 
     public void setListaGeneros(ArrayList<Genero> listaGeneros){
@@ -81,7 +81,7 @@ public class Usuario{
     }
 
     public void adicionarArtista(Artista artista){
-        this.listaArtistas.add(artista);
+        this.listaArtista.add(artista);
     }
 
     public void adicionarGenero(Genero genero){
@@ -97,7 +97,7 @@ public class Usuario{
         for(Playlist aux : listaPlaylists){
             playlists += aux.retornaDados() + "//////////" + "\n";
         }
-        return "Usuario: " + this.nome + "\n" + 
+        return "Usuario: " + this.nome + "\n" +
                 "Id Usuario: " + this.id + "\n" +
                 "//////////" + playlists;
     }

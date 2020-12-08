@@ -74,10 +74,10 @@ public class Musica{
         for(Genero aux : listaGeneros){
             generos += aux.retornaDados() + "\n";
         }
-        return "Musica: " + this.nome + "\n" + 
-                "Id Musica: " this.id + "\n" + 
+        return "Musica: " + this.nome + "\n" +
+                "Id Musica: " + this.id + "\n" +
                 generos + "\n" +
-                "Duracao: " + this.duracao + "\n" + 
+                "Duracao: " + this.duracao + "\n" +
                 "Artista: " + this.artista.getNome() + "\n" +
                 "Album: " + this.album.getNome();
     }
