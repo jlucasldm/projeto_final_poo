@@ -95,7 +95,7 @@ public class Usuario{
     public String retornaDados(){
         String playlists = "";
         for(Playlist aux : listaPlaylists){
-            playlists += aux.retornaDados() + "//////////" + "\n";
+            playlists += aux.retornarDados() + "//////////" + "\n";
         }
         return "Usuario: " + this.nome + "\n" +
                 "Id Usuario: " + this.id + "\n" +

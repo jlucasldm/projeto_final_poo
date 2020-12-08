@@ -85,5 +85,54 @@ public abstract class Coletanea {
     // metodos
     public abstract String retornarDados();
 
+    // Ao adicionar uma música, automaticamente já adiciona os artistas e os generos da música ao album
+    public void adicionarMusica(Musica musica){
+        this.listaMusicas.add(musica);
+
+        ArrayList<Genero> listaGeneroMusica = musica.getListaGeneros();
+
+        for(Genero aux: listaGeneroMusica) {
+            if(!this.listaGeneros.contains(aux)) {
+                this.listaGeneros.add(aux);
+            }
+        }
+
+        if(!this.listaArtistas.contains(musica.getArtista())) {
+            this.listaArtistas.add(musica.getArtista());
+        }
+    }
+
+    //pensar metodo de reproducao
+    public boolean removerMusica(Musica musica){
+        for(Musica aux: this.listaMusicas){
+            if(musica.getId().equals(aux.getId())){
+                this.listaMusicas.remove(musica);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean removerMusica(ArrayList<Musica> listaMusicasRemover){
+        for(int i = 0; i < listaMusicasRemover.size(); i++){
+            for(int j = 0; j < this.listaMusicas.size(); j++){
+                if(listaMusicasRemover.get(i).getId().equals(this.listaMusicas.get(j).getId())){
+                    this.listaMusicas.remove(j);
+                }
+            }
+        }
+
+        return false;
+    }
+
+
+    public void adicionarGenero(Genero genero){
+        this.listaGeneros.add(genero);
+    }
+
+    public void adicionarArtista(Artista artista){
+        this.listaArtistas.add(artista);
+    }
+
 
 }

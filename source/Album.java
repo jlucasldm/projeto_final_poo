@@ -20,17 +20,6 @@ public class Album extends Coletanea {
     }
 
     //metodos
-    public void adicionarMusica(Musica musica){
-        this.listaMusicas.add(musica);
-    }
-
-    public void adicionarGenero(Genero genero){
-        this.listaGeneros.add(genero);
-    }
-
-    public void adicionarArtista(Artista artista){
-        this.listaArtistas.add(artista);
-    }
 
     //ajeitar para a aplicacao depois
     public void adicionarMusicaPlaylist(Playlist playlist){

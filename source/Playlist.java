@@ -8,19 +8,16 @@ public class Playlist extends Coletanea {
         this.autor = autor;
     }
 
+    //gets e sets
+    public Usuario getAutor(){
+        return this.autor;
+    }
+
+    public void setAutor(Usuario autor){
+        this.autor = autor;
+    }
+
     //metodos
-    public void adicionarGenero(Genero genero){
-        this.listaGeneros.add(genero);
-    }
-
-    public void adicionarMusica(Musica musica){
-        this.listaMusicas.add(musica);
-    }
-
-    public void adicionarArtista(Artista artista){
-        this.listaArtistas.add(artista);
-    }
-
     public String retornarDados(){
         String musicas = "";
         for(Musica aux : listaMusicas){
@@ -34,14 +31,4 @@ public class Playlist extends Coletanea {
                 "___________" + musicas;
     }
 
-    //pensar metodo de reproducao
-    public boolean removerMusica(Musica musica){
-        for(Musica aux: this.listaMusicas){
-            if(musica.getId().equals(aux.getId())){
-                this.listaMusicas.remove(musica);
-                return true;
-            }
-        }
-        return false;
-    }
 }
