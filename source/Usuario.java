@@ -1,91 +1,53 @@
 import java.util.ArrayList;
 
-public class Usuario{
-    private String nome;    //retorna
-    private String id;  //retorna
-    private ArrayList<Musica> listaMusicas = new ArrayList<Musica>();
-    private ArrayList<Album> listaAlbuns = new ArrayList<Album>();
+public class Usuario extends Pessoa{
+    private String nome;
+    private int id;
     private ArrayList<Artista> listaArtista = new ArrayList<Artista>();
-    private ArrayList<Genero> listaGeneros = new ArrayList<Genero>();
-    private ArrayList<Playlist> listaPlaylists = new ArrayList<Playlist>(); //retorna
+    private ArrayList<Playlist> listaPlaylists = new ArrayList<Playlist>();
 
-    public Usuario(String nome, String id){
-        this.nome = nome;
-        this.id = id;
+    public Usuario(String nome){
+        super(nome);
+        this.id = controleId;
     }
 
     //gets e sets
-    public void setNome(String nome){
-        this.nome = nome;
-    }
-
-    public String getNome(){
+    public String getNome() {
         return this.nome;
     }
 
-    public void setId(String id){
-        this.id = id;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getId(){
+    public int getId() {
         return this.id;
     }
 
-    public void setListaMusicas(ArrayList<Musica> listaMusicas){
-        this.listaMusicas = listaMusicas;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public ArrayList<Musica> getListaMusicas(){
-        return this.listaMusicas;
-    }
-
-    public void setListaAlbuns(ArrayList<Album> listaAlbuns){
-        this.listaAlbuns = listaAlbuns;
-    }
-
-    public ArrayList<Album> getListaAlbuns(){
-        return this.listaAlbuns;
-    }
-
-    public void setListaArtistas(ArrayList<Artista> listaArtistas){
-        this.listaArtista = listaArtistas;
-    }
-
-    public ArrayList<Artista> getListaArtistas(){
+    public ArrayList<Artista> getListaArtista() {
         return this.listaArtista;
     }
 
-    public void setListaGeneros(ArrayList<Genero> listaGeneros){
-        this.listaGeneros = listaGeneros;
+    public void setListaArtista(ArrayList<Artista> listaArtista) {
+        this.listaArtista = listaArtista;
     }
 
-    public ArrayList<Genero> getListaGeneros(){
-        return this.listaGeneros;
-    }
-
-    public void setListaPlaylist(ArrayList<Playlist> listaPlaylists){
-        this.listaPlaylists = listaPlaylists;
-    }
-
-    public ArrayList<Playlist> getListaPlaylists(){
+    public ArrayList<Playlist> getListaPlaylists() {
         return this.listaPlaylists;
     }
 
+    public void setListaPlaylists(ArrayList<Playlist> listaPlaylists) {
+        this.listaPlaylists = listaPlaylists;
+    }
+
     //metodos
-    public void adicionarMusica(Musica musica){
-        this.listaMusicas.add(musica);
-    }
-
-    public void adicionarAlbum(Album album){
-        this.listaAlbuns.add(album);
-    }
-
-    public void adicionarArtista(Artista artista){
+    public void seguirArtista(Artista artista){
+        artista.getListaUsuarios().add(this);
         this.listaArtista.add(artista);
-    }
-
-    public void adicionarGenero(Genero genero){
-        this.listaGeneros.add(genero);
     }
 
     public void adicionarPlaylist(Playlist playlist){
@@ -102,7 +64,7 @@ public class Usuario{
                 "//////////" + playlists;
     }
 
-    public void criarPlaylist(String nome, String id){
+    public void criarPlaylist(String nome){
         Playlist playlist = new Playlist(nome,  this);
         this.listaPlaylists.add(playlist);
     }
