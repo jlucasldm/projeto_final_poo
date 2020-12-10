@@ -1,56 +1,46 @@
 import java.util.ArrayList;
 
 public class Genero{
-    private String nome;
-    private String id;
+    private EnumGenero enumGenero;
     private ArrayList<Album> listaAlbuns = new ArrayList<Album>();
     private ArrayList<Musica> listaMusicas = new ArrayList<Musica>();
     private ArrayList<Artista> listaArtistas = new ArrayList<Artista>();
 
-    public Genero(String nome, String id){
-        this.nome = nome;
-        this.id = id;
+    public Genero(EnumGenero enumGenero){
+        this.enumGenero = enumGenero;
     }
 
     //gets e sets
-    public void setNome(String nome){
-        this.nome = nome;
+    public EnumGenero getEnumGenero() {
+        return this.enumGenero;
     }
 
-    public String getNome(){
-        return this.nome;
+    public void setEnumGenero(EnumGenero enumGenero) {
+        this.enumGenero = enumGenero;
     }
 
-    public void setId(String id){
-        this.id = id;
-    }
-
-    public String getId(){
-        return this.id;
-    }
-
-    public void setListaAlbuns(ArrayList<Album> listaAlbuns){
-        this.listaAlbuns = listaAlbuns;
-    }
-
-    public ArrayList<Album> getListaAlbuns(){
+    public ArrayList<Album> getListaAlbuns() {
         return this.listaAlbuns;
     }
 
-    public void setListaMusicas(ArrayList<Musica> listaMusicas){
-        this.listaMusicas = listaMusicas;
+    public void setListaAlbuns(ArrayList<Album> listaAlbuns) {
+        this.listaAlbuns = listaAlbuns;
     }
 
-    public ArrayList<Musica> getListaMusicas(){
+    public ArrayList<Musica> getListaMusicas() {
         return this.listaMusicas;
     }
 
-    public void setListaArtistas(ArrayList<Artista> listaArtistas){
-        this.listaArtistas = listaArtistas;
+    public void setListaMusicas(ArrayList<Musica> listaMusicas) {
+        this.listaMusicas = listaMusicas;
     }
 
-    public ArrayList<Artista> getListaArtistas(){
+    public ArrayList<Artista> getListaArtistas() {
         return this.listaArtistas;
+    }
+
+    public void setListaArtistas(ArrayList<Artista> listaArtistas) {
+        this.listaArtistas = listaArtistas;
     }
 
     //metodos
@@ -67,8 +57,7 @@ public class Genero{
     }
 
     public String retornaDados(){
-        return "Genero: " + this.nome + "\n" + 
-                "Id Genero: " + this.id;
+        return "Genero: " + this.enumGenero.toString();
     }
-    
+
 }
