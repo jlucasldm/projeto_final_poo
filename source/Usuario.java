@@ -103,13 +103,13 @@ public class Usuario{
     }
 
     public void criarPlaylist(String nome, String id){
-        Playlist playlist = new Playlist(nome, id, this);
+        Playlist playlist = new Playlist(nome,  this);
         this.listaPlaylists.add(playlist);
     }
 
     public boolean removerPlaylist(Playlist playlist){
         for(Playlist aux : this.listaPlaylists){
-            if(playlist.getId().equals(aux.getId())){
+            if(playlist.getId() == aux.getId()){
                 this.listaPlaylists.remove(playlist);
                 return true;
             }
@@ -119,7 +119,7 @@ public class Usuario{
 
     public boolean adicionarMusicaPlaylist(Playlist playlist, Musica musica){
         for(Playlist aux: this.listaPlaylists){
-            if(playlist.getId().equals(aux.getId())){
+            if(playlist.getId() == aux.getId()){
                 playlist.adicionarMusica(musica);
                 return true;
             }
@@ -129,9 +129,9 @@ public class Usuario{
 
     public boolean removerMusicaPlaylist(Playlist playlist, Musica musica){
         for(Playlist aux: this.listaPlaylists){
-            if(playlist.getId().equals(aux.getId())){
+            if(playlist.getId() == aux.getId()){
                 for(Musica mus : aux.getListaMusicas()){
-                    if(mus.getId().equals(musica.getId())){
+                    if(mus.getId() == musica.getId()){
                         aux.getListaMusicas().remove(musica);
                         return true;
                     }

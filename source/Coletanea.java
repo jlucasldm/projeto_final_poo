@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public abstract class Coletanea {
     protected String nome; //retorna
-    protected String id;  //retorna
+    protected static int controleId = 0;  //retorna
     protected int qtdMusicas; //é eum função da quantidade de elementos da lista de musicas
     protected float duracao;  //é eum função da quantidade da duração de cada musica (isso ainda nao foi implementado)
 
@@ -11,10 +11,8 @@ public abstract class Coletanea {
     protected ArrayList<Musica> listaMusicas = new ArrayList<Musica>();   //retorna
     protected ArrayList<Artista> listaArtistas = new ArrayList<Artista>();    //retorna
 
-
-    public Coletanea(String nome, String id){
+    public Coletanea(String nome){
         this.nome = nome;
-        this.id = id;
         if(listaMusicas.size() == 0){
             this.duracao = 0;
         } else{
@@ -34,12 +32,12 @@ public abstract class Coletanea {
         this.nome = nome;
     }
 
-    public String getId() {
-        return this.id;
+    public int getId() {
+        return controleId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(int id) {
+        controleId = id;
     }
 
     public int getQtdMusicas() {
@@ -105,7 +103,7 @@ public abstract class Coletanea {
     //pensar metodo de reproducao
     public boolean removerMusica(Musica musica){
         for(Musica aux: this.listaMusicas){
-            if(musica.getId().equals(aux.getId())){
+            if(musica.getId() == aux.getId()){
                 this.listaMusicas.remove(musica);
                 return true;
             }
@@ -116,7 +114,7 @@ public abstract class Coletanea {
     public boolean removerMusica(ArrayList<Musica> listaMusicasRemover){
         for(int i = 0; i < listaMusicasRemover.size(); i++){
             for(int j = 0; j < this.listaMusicas.size(); j++){
-                if(listaMusicasRemover.get(i).getId().equals(this.listaMusicas.get(j).getId())){
+                if(listaMusicasRemover.get(i).getId() == this.listaMusicas.get(j).getId()){
                     this.listaMusicas.remove(j);
                 }
             }
@@ -124,7 +122,6 @@ public abstract class Coletanea {
 
         return false;
     }
-
 
     public void adicionarGenero(Genero genero){
         this.listaGeneros.add(genero);
@@ -134,5 +131,7 @@ public abstract class Coletanea {
         this.listaArtistas.add(artista);
     }
 
-
+    public void incrementarId(){
+        controleId++;
+    }
 }

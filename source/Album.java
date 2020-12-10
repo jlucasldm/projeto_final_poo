@@ -3,11 +3,14 @@ import java.util.ArrayList;
 
 public class Album extends Coletanea {
     private Artista autorAlbum;
+    private int id;
 
-    public Album(String nome, String id, Artista autorAlbum){
-        super(nome, id);
+    public Album(String nome, Artista autorAlbum){
+        super(nome);
         this.autorAlbum = autorAlbum;
         this.listaArtistas.add(autorAlbum);
+        incrementarId();
+        this.id = controleId;
     }
 
     // gets e sets
@@ -30,7 +33,7 @@ public class Album extends Coletanea {
 
     public boolean adicionarMusicaPlaylist(Playlist playlist, Musica musica){
         for(Musica aux: this.listaMusicas){
-            if(musica.getId().equals(aux.getId())){
+            if(musica.getId() == aux.getId()){
                 playlist.adicionarMusica(musica);
                 return true;
             }

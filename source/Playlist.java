@@ -2,10 +2,13 @@ import java.util.ArrayList;
 
 public class Playlist extends Coletanea {
     private Usuario autor;  //retorna
+    private int id;
 
-    public Playlist(String nome, String id, Usuario autor){
-        super(nome, id);
+    public Playlist(String nome, Usuario autor){
+        super(nome);
         this.autor = autor;
+        incrementarId();
+        this.id = controleId;
     }
 
     //gets e sets

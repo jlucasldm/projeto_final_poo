@@ -1,19 +1,26 @@
 import java.util.ArrayList;
 
+
 public class Musica{
     private String nome;
-    private String id;  //setar como static
+    private static int controleId = 0;
+    private int id;
     private float duracao;
     private Artista artista;    //pode ter mais de um artista
     private Album album;
     private ArrayList<Genero> listaGeneros = new ArrayList<Genero>();
 
-    public Musica(String nome, String id, float duracao, Artista artista, Album album){
+    public Musica(String nome, float duracao, Artista artista, Album album){
         this.nome = nome;
-        this.id = id;
+        incrementarId();
+        this.id = controleId;
         this.duracao = duracao;
         this.artista = artista;
         this.album = album;
+    }
+
+    public void incrementarId(){
+        controleId++;
     }
 
     public void setNome(String nome){
@@ -24,11 +31,11 @@ public class Musica{
         return this.nome;
     }
 
-    public void setId(String id){
+    public void setId(int id){
         this.id = id;
     }
 
-    public String getId(){
+    public int getId(){
         return this.id;
     }
 
@@ -92,3 +99,22 @@ public class Musica{
 
     //pensar sobre metodo de reproducao
 }
+/*
+Gênero como enum?
+
+
+Áudio (abstract class) -> [nome, id, genero]
+    Rádio (class) AOVIVO BATEPAPO -> [estação]
+    Podcast (class) GRAVADO BATEPAPO -> [participantes(Usuarios)]
+    Música (class) GRAVADO MELODIA -> []
+
+    Gravado (abstract class) -> [aumentarVelocidade(), diminuirVelocidade(), reproduzir()] [duracao, artista,  album, genero]
+    AoVivo (abstract class) -> [sintonizarProxima(), sintonizarAnterior()] [horarioInicio, participantes(Usuarios)]
+
+    BatePapo (interface) -> [adicionarParticipantes(),  removerParticipantes()]
+    Melodia (interface) -> [removerPlaylist(), adicionarPlaylist()]
+
+Audio <- AoVivo <- BatePapo <- Rádio
+Audio <- Gravado <- BatePapo <- Podcast
+Audio <- Gravado <- Melodia <- Musica
+*/

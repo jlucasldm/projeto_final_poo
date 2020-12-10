@@ -2,7 +2,8 @@ import java.util.ArrayList;
 
 public class Artista{
     private String nome;    //retorna
-    private String id;  //retorna
+    private static int controleId = 0;  //retorna
+    private int id;
     private ArrayList<Genero> listaGeneros = new ArrayList<Genero>();   //retorna
     private ArrayList<Musica> listaMusicas = new ArrayList<Musica>();
     private ArrayList<Album> listaAlbuns = new ArrayList<Album>();  //retorna
@@ -10,7 +11,11 @@ public class Artista{
 
     public Artista(String nome, String id){
         this.nome = nome;
-        this.id = id;
+        this.id = controleId;
+    }
+
+    public void incrementarId(){
+        controleId++;
     }
 
     //gets e sets
@@ -22,11 +27,11 @@ public class Artista{
         return this.nome;
     }
 
-    public void setId(String id){
+    public void setId(int id){
         this.id = id;
     }
 
-    public String getId(){
+    public int getId(){
         return this.id;
     }
 
@@ -84,7 +89,7 @@ public class Artista{
         for(Usuario aux : listaUsuarios){
             usuarios += aux.retornaDados() + "||||||||||" + "\n";
         }
-        return "Artista: " + this.nome + "\n" + 
+        return "Artista: " + this.nome + "\n" +
                 "Id: " + this.id + "\n" +
                 "||||||||||" + usuarios;
     }
