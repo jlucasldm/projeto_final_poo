@@ -9,13 +9,10 @@ public class Artista{
     private ArrayList<Album> listaAlbuns = new ArrayList<Album>();  //retorna
     private ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>(); //usuarios que segem o artista
 
-    public Artista(String nome, String id){
+    public Artista(String nome){
         this.nome = nome;
+        this.incrementarId();
         this.id = controleId;
-    }
-
-    public void incrementarId(){
-        controleId++;
     }
 
     //gets e sets
@@ -25,6 +22,14 @@ public class Artista{
 
     public String getNome(){
         return this.nome;
+    }
+
+    public static void setControleId(int id){
+        controleId = id;
+    }
+
+    public static int getControleId(){
+        return controleId;
     }
 
     public void setId(int id){
@@ -92,6 +97,10 @@ public class Artista{
         return "Artista: " + this.nome + "\n" +
                 "Id: " + this.id + "\n" +
                 "||||||||||" + usuarios;
+    }
+
+    public void incrementarId(){
+        controleId++;
     }
 
 }

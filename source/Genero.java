@@ -2,14 +2,16 @@ import java.util.ArrayList;
 
 public class Genero{
     private String nome;
-    private String id;
+    protected static int controleId = 0;
+    private int id;
     private ArrayList<Album> listaAlbuns = new ArrayList<Album>();
     private ArrayList<Musica> listaMusicas = new ArrayList<Musica>();
     private ArrayList<Artista> listaArtistas = new ArrayList<Artista>();
 
-    public Genero(String nome, String id){
+    public Genero(String nome){
         this.nome = nome;
-        this.id = id;
+        this.incrementarId()
+        this.id = controleId;
     }
 
     //gets e sets
@@ -21,11 +23,19 @@ public class Genero{
         return this.nome;
     }
 
-    public void setId(String id){
+    public static void setControleId(int id){
+        controleId = id;
+    }
+
+    public static int getControleId(){
+        return controleId;
+    }
+
+    public void setId(int id){
         this.id = id;
     }
 
-    public String getId(){
+    public int getId(){
         return this.id;
     }
 
@@ -69,6 +79,10 @@ public class Genero{
     public String retornaDados(){
         return "Genero: " + this.nome + "\n" + 
                 "Id Genero: " + this.id;
+    }
+
+    public void incrementarId(){
+        controleId++;
     }
     
 }

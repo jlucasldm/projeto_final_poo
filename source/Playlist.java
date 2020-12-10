@@ -20,6 +20,14 @@ public class Playlist extends Coletanea {
         this.autor = autor;
     }
 
+    public int getId(){
+        return this.id;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+
     //metodos
     public String retornarDados(){
         String musicas = "";

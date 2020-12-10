@@ -22,6 +22,14 @@ public class Album extends Coletanea {
         this.autorAlbum = autorAlbum;
     }
 
+    public int getId(){
+        return this.id;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+
     //metodos
 
     //ajeitar para a aplicacao depois

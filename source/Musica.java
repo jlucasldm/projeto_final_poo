@@ -19,16 +19,20 @@ public class Musica{
         this.album = album;
     }
 
-    public void incrementarId(){
-        controleId++;
-    }
-
     public void setNome(String nome){
         this.nome = nome;
     }
 
     public String getNome(){
         return this.nome;
+    }
+
+    public static void setControleId(int id){
+        controleId = id;
+    }
+
+    public static int getControleId(){
+        return controleId;
     }
 
     public void setId(int id){
@@ -95,6 +99,10 @@ public class Musica{
 
     public void adicionarMusicaPlaylist(Playlist playlist, Musica musica){
         playlist.adicionarMusica(musica);
+    }
+
+    public void incrementarId(){
+        controleId++;
     }
 
     //pensar sobre metodo de reproducao

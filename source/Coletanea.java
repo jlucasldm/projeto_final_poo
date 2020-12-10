@@ -32,11 +32,11 @@ public abstract class Coletanea {
         this.nome = nome;
     }
 
-    public int getId() {
+    public static int getControleId() {
         return controleId;
     }
 
-    public void setId(int id) {
+    public static void setControleId(int id) {
         controleId = id;
     }
 
