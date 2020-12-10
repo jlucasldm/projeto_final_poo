@@ -33,13 +33,13 @@ public class Album extends Coletanea {
     //metodos
 
     //ajeitar para a aplicacao depois
-    public void adicionarMusicaPlaylist(Playlist playlist){
+    public void adicionarAlbumPlaylist(Playlist playlist){
         for(Musica aux : this.listaMusicas){
             playlist.adicionarMusica(aux);
         }
     }
 
-    public boolean adicionarMusicaPlaylist(Playlist playlist, Musica musica){
+    public boolean adicionarAlbumPlaylist(Playlist playlist, Musica musica){
         for(Musica aux: this.listaMusicas){
             if(musica.getId() == aux.getId()){
                 playlist.adicionarMusica(musica);

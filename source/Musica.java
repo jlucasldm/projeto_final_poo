@@ -93,10 +93,12 @@ public class Musica{
                 "Album: " + this.album.getNome();
     }
 
+    //Isso nao precisa existir
     public void adicionarMusicaPlaylist(Playlist playlist){
         playlist.adicionarMusica(this);
     }
 
+    //nem isso
     public void adicionarMusicaPlaylist(Playlist playlist, Musica musica){
         playlist.adicionarMusica(musica);
     }
