@@ -18,10 +18,6 @@ public class Aplicacao{
         System.out.println("Nome do usuário: ");
         nome = var.nextLine();
 
-        String id = "";
-        System.out.println("Id do usuario: ");
-        id = var.nextLine();
-
         Usuario cadastrado = new Usuario(nome);
         listaUsuarios.add(cadastrado);
         System.out.println("Usuario cadastrado");

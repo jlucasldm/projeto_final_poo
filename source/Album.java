@@ -1,6 +1,4 @@
 //playlist e album são coletaneas de musicas. é pertinente utilizar uma classe abstrata
-import java.util.ArrayList;
-
 public class Album extends Coletanea {
     private Artista autorAlbum;
     private int id;

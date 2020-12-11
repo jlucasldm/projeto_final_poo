@@ -6,7 +6,7 @@ public class Artista extends Pessoa{
 
     public Artista(String nome){
         super(nome);
-        this.incrementarId();
+        incrementarId();
         this.id = controleId;
     }
 
@@ -38,7 +38,7 @@ public class Artista extends Pessoa{
                 "||||||||||" + usuarios;
     }
 
-    public Musica criarMusica(String nome, float duracao, Artista artista, Album album, ArrayList<Genero> listaGeneros){
+    public Musica criarMusica(String nome, float duracao, Album album, ArrayList<Genero> listaGeneros){
         Musica novaMusica = new Musica(nome, duracao, this, album);
         novaMusica.setListaGeneros(listaGeneros);
         this.listaMusicas.add(novaMusica);

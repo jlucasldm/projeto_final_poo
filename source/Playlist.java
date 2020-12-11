@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Playlist extends Coletanea {
     private Usuario autor;  //retorna
     private int id;
