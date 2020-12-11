@@ -2,12 +2,12 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Aplicacao{
-    private static ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
-    private static ArrayList<Artista> listaArtistas = new ArrayList<Artista>();
-    private static ArrayList<Musica> listaMusicas = new ArrayList<Musica>();
-    private static ArrayList<Album> listaAlbuns = new ArrayList<Album>();
-    private static ArrayList<Genero> listaGeneros = new ArrayList<Genero>();
-    private static ArrayList<Playlist> listaPlaylists = new ArrayList<Playlist>();
+    private static ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+    private static ArrayList<Artista> listaArtistas = new ArrayList<>();
+    private static ArrayList<Musica> listaMusicas = new ArrayList<>();
+    private static ArrayList<Album> listaAlbuns = new ArrayList<>();
+    private static ArrayList<Genero> listaGeneros = new ArrayList<>();
+    private static ArrayList<Playlist> listaPlaylists = new ArrayList<>();
 
 
     //todos os metodos estao sujeitos à alteração em função das mudanças de suas classes correspondentes
@@ -268,7 +268,7 @@ public class Aplicacao{
         return true;
     }
 
-    public static void main(){
+    public static void main(String[] args){
         int opcao = 0;
         Scanner var = new Scanner(System.in);
 
@@ -314,6 +314,9 @@ public class Aplicacao{
                     break;
                 case 9:
                     Aplicacao.adicionarAlbumPlaylist();
+                    break;
+                default:
+                    System.out.println("Selecione uma opcao valida");
                     break;
             }
         }while(opcao != 10);

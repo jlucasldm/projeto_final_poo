@@ -11,7 +11,7 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    public void incrementarId(){
+    public static void incrementarId(){
         controleId++;
     }
 
