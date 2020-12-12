@@ -82,6 +82,7 @@ public class Aplicacao{
         var.close();
     }
 
+    //possívelmente depreciada
     public static void cadastrarGenero(){
         Scanner var = new Scanner(System.in);
         int indiceGenero = 0;
@@ -117,6 +118,15 @@ public class Aplicacao{
         System.out.println("Genero cadastrado");
 
         var.close();
+    }
+
+    //todos os generos já previamente cadastrados
+    public void criarGeneros(){
+        for(int i = 0; i < 22; i++){
+            EnumGenero enumGenero = EnumGenero.values()[i];
+            Genero aux = new Genero(enumGenero);
+            listaGeneros.add(aux);
+        }
     }
 
     public static void cadastrarPlaylist(){
@@ -296,14 +306,12 @@ public class Aplicacao{
             "1. Cadastrar um usuario \n" +
             "2. Cadastrar um artista \n" +
             "3. Cadastrar uma musica \n" +
-            "4. Cadastrar um genero \n" +   //nao parece fazer sentido
-            //seria mais logico que os generos já existissem
-            "5. Cadastrar uma um album \n" +
-            "6. Cadastrar uma playlist \n" +
-            "7. Adicionar musica(s) a uma playlist \n" +
-            "8. Remover musica(s) de uma playlist \n" +
-            "9. Adicionar um album a uma playlist \n" +
-            "10. Sair");
+            "4. Cadastrar uma um album \n" +
+            "5. Cadastrar uma playlist \n" +
+            "6. Adicionar musica(s) a uma playlist \n" +
+            "7. Remover musica(s) de uma playlist \n" +
+            "8. Adicionar um album a uma playlist \n" +
+            "9. Sair");
 
             opcao = var.nextInt();
             switch(opcao){
@@ -317,25 +325,22 @@ public class Aplicacao{
                     Aplicacao.cadastrarMusica();
                     break;
                 case 4:
-                    Aplicacao.cadastrarGenero();
-                    break;
-                case 5:
                     Aplicacao.cadastrarAlbum();
                     break;
-                case 6:
+                case 5:
                     Aplicacao.cadastrarPlaylist();
                     break;
-                case 7:
+                case 6:
                     Aplicacao.adicionarMusicaPlaylist();
                     break;
-                case 8:
+                case 7:
                     Aplicacao.removerMusicaPlaylist();
                     break;
-                case 9:
+                case 8:
                     Aplicacao.adicionarAlbumPlaylist();
                     break;
                 default:
-                    System.out.println("Selecione uma opcao valida");
+                    System.out.println("Selecione uma opcao válida");
                     break;
             }
         }while(opcao != 10);
