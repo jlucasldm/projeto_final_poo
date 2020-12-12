@@ -21,6 +21,8 @@ public class Aplicacao{
         Usuario cadastrado = new Usuario(nome);
         listaUsuarios.add(cadastrado);
         System.out.println("Usuario cadastrado");
+
+        var.close();
     }
 
     public static void cadastrarArtista(){
@@ -33,6 +35,8 @@ public class Aplicacao{
         Artista cadastrado = new Artista(nome);
         listaArtistas.add(cadastrado);
         System.out.println("Artista cadastrado");
+
+        var.close();
     }
 
     //função a ser removida. acesso à musicas estará disponível por meio de artista
@@ -58,6 +62,7 @@ public class Aplicacao{
         listaMusicas.add(cadastrado);
         System.out.println("Musica cadastrada");
 
+        var.close();
     }
 
     //função a ser removida. acesso à musicas estará disponível por meio de artista
@@ -73,6 +78,8 @@ public class Aplicacao{
         Album cadastrado = new Album(nome, auxArtista);
         listaAlbuns.add(cadastrado);
         System.out.println("Album cadastrado");
+
+        var.close();
     }
 
     public static void cadastrarGenero(){
@@ -108,6 +115,8 @@ public class Aplicacao{
         Genero cadastrado = new Genero(enumGenero);
         listaGeneros.add(cadastrado);
         System.out.println("Genero cadastrado");
+
+        var.close();
     }
 
     public static void cadastrarPlaylist(){
@@ -130,6 +139,8 @@ public class Aplicacao{
         Playlist cadastrado = new Playlist(nome, autor);
         listaPlaylists.add(cadastrado);
         System.out.println("Playlist cadastrado");
+
+        var.close();
     }
 
     public static boolean adicionarMusicaPlaylist(){
@@ -155,6 +166,7 @@ public class Aplicacao{
 
         if(musica.getNome().equals("")){
             System.out.println("Musica nao esta cadastrada");
+            var.close();
             return false;
         }
 
@@ -166,11 +178,15 @@ public class Aplicacao{
 
         if(playlist.getNome().equals("")){
             System.out.println("Playlist nao esta cadastrada");
+            var.close();
             return false;
         }
 
         playlist.adicionarMusica(musica);
         System.out.println("Musica adicionada");
+
+        var.close();
+
         return true;
     }
 
@@ -197,6 +213,7 @@ public class Aplicacao{
 
         if(musica.getNome().equals("")){
             System.out.println("Musica nao esta cadastrada");
+            var.close();
             return false;
         }
 
@@ -208,6 +225,7 @@ public class Aplicacao{
 
         if(playlist.getNome().equals("")){
             System.out.println("Playlist nao esta cadastrada");
+            var.close();
             return false;
         }
 
@@ -218,6 +236,8 @@ public class Aplicacao{
         }else{
             System.out.println("Playlist nao contem a musica");
         }
+
+        var.close();
 
         return true;
     }
@@ -244,6 +264,7 @@ public class Aplicacao{
 
         if(album.getNome().equals("")){
             System.out.println("Album nao esta cadastrada");
+            var.close();
             return false;
         }
 
@@ -255,12 +276,14 @@ public class Aplicacao{
 
         if(playlist.getNome().equals("")){
             System.out.println("Playlist nao esta cadastrada");
+            var.close();
             return false;
         }
 
         album.adicionarAlbumPlaylist(playlist); //é melhor rever essa função. com certeza deve ser otimizado
         //o lance é que existe pleonasmo em funções de adicao de musicas/albuns em playlists
         System.out.println("Album adicionado");
+        var.close();
         return true;
     }
 
@@ -316,5 +339,6 @@ public class Aplicacao{
                     break;
             }
         }while(opcao != 10);
+        var.close();
     }
 }
