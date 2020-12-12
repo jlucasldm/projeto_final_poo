@@ -340,10 +340,6 @@ public class Aplicacao{
                     Aplicacao.adicionarAlbumPlaylist();
                     break;
                 default:
-<<<<<<< HEAD
-=======
-                    System.out.println("Selecione uma opcao válida");
->>>>>>> 8d1f7dcf678519c0ee136ee83e10dd420d8447c4
                     break;
             }
         }while(opcao != 10);
