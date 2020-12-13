@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Genero{
     private EnumGenero enumGenero;
-    private ArrayList<Album> listaAlbuns = new ArrayList<Album>();
-    private ArrayList<Musica> listaMusicas = new ArrayList<Musica>();
-    private ArrayList<Artista> listaArtistas = new ArrayList<Artista>();
+    //private ArrayList<Album> listaAlbuns = new ArrayList<>();
+    //private ArrayList<Musica> listaMusicas = new ArrayList<>();
+    //private ArrayList<Artista> listaArtistas = new ArrayList<>();
 
     public Genero(EnumGenero enumGenero){
         this.enumGenero = enumGenero;
@@ -24,6 +24,7 @@ public class Genero{
         }
     }
 
+    /*
     public ArrayList<Album> getListaAlbuns() {
         return this.listaAlbuns;
     }
@@ -62,7 +63,9 @@ public class Genero{
             this.listaArtistas = listaArtistas;
         }
     }
+     */
 
+    /*
     //metodos
     public void adicionarAlbum(Album album){
         this.listaAlbuns.add(album);
@@ -75,7 +78,7 @@ public class Genero{
     public void adicionarArtista(Artista artista){
         this.listaArtistas.add(artista);
     }
-
+     */
     public String retornaDados(){
         return "Genero: " + this.enumGenero.toString();
     }

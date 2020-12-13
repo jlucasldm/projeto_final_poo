@@ -48,6 +48,7 @@ public class Album extends Coletanea {
         }
     }
 
+    /*
     public boolean adicionarAlbumPlaylist(Playlist playlist, Musica musica){
         for(Musica aux: this.listaMusicas){
             if(musica.getId() == aux.getId()){
@@ -57,6 +58,7 @@ public class Album extends Coletanea {
         }
         return false;
     }
+     */
 
     public String retornaDados(){
         String musicas = "";
@@ -72,5 +74,4 @@ public class Album extends Coletanea {
                 musicas;
     }
 
-    //falta implementar o meotodo de reprodução
 }

@@ -3,9 +3,9 @@ import java.util.ArrayList;
 public abstract class Pessoa {
     protected String nome;
     protected static int controleId = 0;
-    protected ArrayList<Genero> listaGeneros = new ArrayList<Genero>();
-    protected ArrayList<Musica> listaMusicas = new ArrayList<Musica>();
-    protected ArrayList<Album> listaAlbuns = new ArrayList<Album>();
+    protected ArrayList<Genero> listaGeneros = new ArrayList<>();
+    protected ArrayList<Musica> listaMusicas = new ArrayList<>();
+    protected ArrayList<Album> listaAlbuns = new ArrayList<>();
 
     public Pessoa(String nome) {
         this.nome = nome;
@@ -69,6 +69,7 @@ public abstract class Pessoa {
     }
 
     //metodos
+    /*
     public void adicionarMusica(Musica musica){
         this.listaMusicas.add(musica);
     }
@@ -80,5 +81,6 @@ public abstract class Pessoa {
     public void adicionarAlbum(Album album){
         this.listaAlbuns.add(album);
     }
+     */
 
 }

@@ -6,9 +6,9 @@ public class Musica{
     private static int controleId = 0;
     private int id;
     private int duracao;
-    private Artista artista;    //pode ter mais de um artista
+    private Artista artista;
     private Album album;
-    private ArrayList<Genero> listaGeneros = new ArrayList<Genero>();
+    private ArrayList<Genero> listaGeneros = new ArrayList<>();
 
     public Musica(String nome, int duracao, Artista artista, Album album){
         this.nome = nome;
@@ -134,6 +134,7 @@ public class Musica{
                 "Album: " + this.album.getNome();
     }
 
+    /*
     //Isso nao precisa existir
     public void adicionarMusicaPlaylist(Playlist playlist){
         playlist.adicionarMusica(this);
@@ -143,12 +144,12 @@ public class Musica{
     public void adicionarMusicaPlaylist(Playlist playlist, Musica musica){
         playlist.adicionarMusica(musica);
     }
+     */
 
     public static void incrementarId(){
         controleId++;
     }
 
-    //pensar sobre metodo de reproducao
 }
 /*
 Gênero como enum?

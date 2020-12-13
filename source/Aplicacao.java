@@ -2,19 +2,19 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Aplicacao{
-    private static ArrayList<Usuario> listaUsuarios = new ArrayList<>();
-    private static ArrayList<Artista> listaArtistas = new ArrayList<>();
-    private static ArrayList<Musica> listaMusicas = new ArrayList<>();
-    private static ArrayList<Album> listaAlbuns = new ArrayList<>();
-    private static ArrayList<Genero> listaGeneros = new ArrayList<>();
-    private static ArrayList<Playlist> listaPlaylists = new ArrayList<>();
+    private static final ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+    private static final ArrayList<Artista> listaArtistas = new ArrayList<>();
+    private static final ArrayList<Musica> listaMusicas = new ArrayList<>();
+    private static final ArrayList<Album> listaAlbuns = new ArrayList<>();
+    private static final ArrayList<Genero> listaGeneros = new ArrayList<>();
+    private static final ArrayList<Playlist> listaPlaylists = new ArrayList<>();
 
 
     //todos os metodos estao sujeitos à alteração em função das mudanças de suas classes correspondentes
     public static void cadastrarUsuario(){
         //String nome, String id
         Scanner var = new Scanner(System.in);
-        String nome = "";
+        String nome;
         System.out.println("Nome do usuário: ");
         nome = var.nextLine();
 
@@ -28,7 +28,7 @@ public class Aplicacao{
     public static void cadastrarArtista(){
         //String nome, String id
         Scanner var = new Scanner(System.in);
-        String nome = "";
+        String nome;
         System.out.println("Nome do artista: ");
         nome = var.nextLine();
 
@@ -43,11 +43,11 @@ public class Aplicacao{
     public static boolean cadastrarMusica(){
         //String nome, float duracao, Artista artista, Album album
         Scanner var = new Scanner(System.in);
-        String nome = "";
+        String nome;
         System.out.println("Nome da musica: ");
         nome = var.nextLine();
 
-        int duracao = 0;
+        int duracao;
         System.out.println("Duracao da musica: ");
         duracao = var.nextInt();
 
@@ -57,7 +57,7 @@ public class Aplicacao{
         referencia para a criação da instancia de musica. Caso contrario, sera passado um objeto vazio*/
 
 
-        int idArtista = 0;
+        int idArtista;
         System.out.println("Id do artista: ");
         idArtista = var.nextInt();
 
@@ -73,7 +73,7 @@ public class Aplicacao{
             return false;
         }
 
-        int idAlbum = 0;
+        int idAlbum;
         System.out.println("Id do album: ");
         idAlbum = var.nextInt();
 
@@ -102,11 +102,11 @@ public class Aplicacao{
     public static boolean cadastrarAlbum(){
         //String nome, Artista autorAlbum
         Scanner var = new Scanner(System.in);
-        String nome = "";
+        String nome;
         System.out.println("Nome do album: ");
         nome = var.nextLine();
 
-        int idArtista = 0;
+        int idArtista;
         System.out.println("Id do artista: ");
         idArtista = var.nextInt();
 
@@ -134,7 +134,7 @@ public class Aplicacao{
     //possívelmente depreciada
     public static void cadastrarGenero(){
         Scanner var = new Scanner(System.in);
-        int indiceGenero = 0;
+        int indiceGenero;
         System.out.println("1.  Pop \n" +
                             "2.  Rap \n" +
                             "3.  Hip Hop \n" +
@@ -181,7 +181,7 @@ public class Aplicacao{
     public static boolean cadastrarPlaylist(){
         //String nome, Usuario autor
         Scanner var = new Scanner(System.in);
-        String nome = "";
+        String nome;
         System.out.println("Nome da playlist: ");
         nome = var.nextLine();
 
@@ -285,6 +285,29 @@ public class Aplicacao{
                 System.out.println(aux.retornaDados());
             }
         }
+    }
+
+    public static void definirGeneroMusica(){
+        Scanner var = new Scanner(System.in);
+
+        int idMusica;
+        System.out.println("Id da musica");
+        idMusica = var.nextInt();
+
+        int indiceGenero;
+        System.out.println("Codigo do genero");
+        indiceGenero = var.nextInt();
+
+        EnumGenero enumGeneroaux = EnumGenero.values()[indiceGenero - 1];
+        for(Musica aux : listaMusicas){
+            if(aux.getId() == idMusica){
+                for (Genero auxGen : listaGeneros) {
+                    if (auxGen.getEnumGenero().equals(enumGeneroaux)) {
+                        aux.adicionarGenero(auxGen);
+                    }
+                }
+            }
+        }    
     }
 
     public static boolean adicionarMusicaPlaylist(){
@@ -432,7 +455,7 @@ public class Aplicacao{
     }
 
     public static void main(String[] args){
-        int opcao = 0;
+        int opcao;
         Scanner var = new Scanner(System.in);
 
         do{
@@ -452,10 +475,11 @@ public class Aplicacao{
             "11. Consultar um genero \n" + 
             "12. Consultar uma playlist \n\n" +
             "///////DEMAIS OPERACOES///////\n" +
-            "13. Adicionar musica(s) a uma playlist \n" +
-            "14. Remover musica(s) de uma playlist \n" +
-            "15. Adicionar um album a uma playlist \n\n" +
-            "16. Sair");
+            "13. Definir genero de uma musica\n" +
+            "14. Adicionar musica(s) a uma playlist \n" +
+            "15. Remover musica(s) de uma playlist \n" +
+            "16. Adicionar um album a uma playlist \n\n" +
+            "17. Sair");
 
             opcao = var.nextInt();
             switch(opcao){
@@ -496,18 +520,21 @@ public class Aplicacao{
                     Aplicacao.consultarPlaylist();
                     break;
                 case 13:
-                    Aplicacao.adicionarMusicaPlaylist();
+                    Aplicacao.definirGeneroMusica();
                     break;
                 case 14:
-                    Aplicacao.removerMusicaPlaylist();
+                    Aplicacao.adicionarMusicaPlaylist();
                     break;
                 case 15:
+                    Aplicacao.removerMusicaPlaylist();
+                    break;
+                case 16:
                     Aplicacao.adicionarAlbumPlaylist();
                     break;
                 default:
                     break;
             }
-        }while(opcao != 16);
+        }while(opcao != 17);
         //var.close();
     }
 }

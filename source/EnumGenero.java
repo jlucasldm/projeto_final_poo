@@ -20,5 +20,5 @@ public enum EnumGenero {
     SAMBA_ENUM,
     VAQUEJADA_ENUM,
     ARROCHA_ENUM,
-    PAGODAO_ENUM;
+    PAGODAO_ENUM
 }

@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class Artista extends Usuario{
     //private int id;
@@ -45,6 +45,7 @@ public class Artista extends Usuario{
 
     //metodos
 
+    /*
     public Musica criarMusica(String nome, int duracao, Album album, ArrayList<Genero> listaGeneros){
         Musica novaMusica = new Musica(nome, duracao, this, album);
         novaMusica.setListaGeneros(listaGeneros);
@@ -57,6 +58,7 @@ public class Artista extends Usuario{
         novoAlbum.setListaMusicas(listaMusicas);
         return novoAlbum;
     }
+     */
 
     @Override
     public String retornaDados() {

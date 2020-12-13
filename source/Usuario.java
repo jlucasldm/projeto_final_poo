@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class Usuario extends Pessoa{
     private int id;
-    private ArrayList<Artista> listaArtista = new ArrayList<Artista>();
-    private ArrayList<Playlist> listaPlaylists = new ArrayList<Playlist>();
+    //private ArrayList<Artista> listaArtista = new ArrayList<>();
+    private ArrayList<Playlist> listaPlaylists = new ArrayList<>();
 
     public Usuario(String nome){
         super(nome);
@@ -38,6 +38,7 @@ public class Usuario extends Pessoa{
         }
     }
 
+    /*
     public ArrayList<Artista> getListaArtista() {
         return this.listaArtista;
     }
@@ -50,6 +51,7 @@ public class Usuario extends Pessoa{
             this.listaArtista = listaArtista;
         }
     }
+     */
 
     public ArrayList<Playlist> getListaPlaylists() {
         return this.listaPlaylists;
@@ -72,9 +74,11 @@ public class Usuario extends Pessoa{
     }
     */
 
+    /*
     public void adicionarPlaylist(Playlist playlist){
         this.listaPlaylists.add(playlist);
     }
+     */
 
     public String retornaDados(){
         String playlists = "";
@@ -88,8 +92,9 @@ public class Usuario extends Pessoa{
                 playlists;
     }
 
+    /*
     public void criarPlaylist(String nome){
-        Playlist playlist = new Playlist(nome,  this);
+        Playlist playlist = new Playlist(nome,this);
         this.listaPlaylists.add(playlist);
     }
 
@@ -126,4 +131,5 @@ public class Usuario extends Pessoa{
         }
         return false;
     }
+     */
 }

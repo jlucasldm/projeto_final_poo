@@ -7,9 +7,9 @@ public abstract class Coletanea {
     protected int duracao;  //é eum função da quantidade da duração de cada musica (isso ainda nao foi implementado)
 
     //atributo estatico sinalizando a reproducao de musica
-    protected ArrayList<Genero> listaGeneros = new ArrayList<Genero>();   //retorna
-    protected ArrayList<Musica> listaMusicas = new ArrayList<Musica>();   //retorna
-    protected ArrayList<Artista> listaArtistas = new ArrayList<Artista>();    //retorna
+    //protected ArrayList<Genero> listaGeneros = new ArrayList<>();   //retorna
+    protected ArrayList<Musica> listaMusicas = new ArrayList<>();   //retorna
+    protected ArrayList<Artista> listaArtistas = new ArrayList<>();    //retorna
 
     protected Coletanea(String nome){
         this.nome = nome;
@@ -76,6 +76,7 @@ public abstract class Coletanea {
         }
     }
 
+    /*
     public ArrayList<Genero> getListaGeneros() {
         return this.listaGeneros;
     }
@@ -88,6 +89,7 @@ public abstract class Coletanea {
             this.listaGeneros = listaGeneros;
         }
     }
+     */
 
     public ArrayList<Musica> getListaMusicas() {
         return this.listaMusicas;
@@ -121,14 +123,18 @@ public abstract class Coletanea {
     // Ao adicionar uma música, automaticamente já adiciona os artistas e os generos da música ao album
     public void adicionarMusica(Musica musica){
         this.listaMusicas.add(musica);
+        this.duracao += musica.getDuracao();
+        this.qtdMusicas ++;
 
         ArrayList<Genero> listaGeneroMusica = musica.getListaGeneros();
 
+        /*
         for(Genero aux: listaGeneroMusica) {
             if(!this.listaGeneros.contains(aux)) {
                 this.listaGeneros.add(aux);
             }
         }
+         */
 
         if(!this.listaArtistas.contains(musica.getArtista())) {
             this.listaArtistas.add(musica.getArtista());
@@ -140,6 +146,8 @@ public abstract class Coletanea {
         for(Musica aux: this.listaMusicas){
             if(musica.getId() == aux.getId()){
                 this.listaMusicas.remove(musica);
+                this.duracao -= musica.getDuracao();
+                this.qtdMusicas--;
                 return true;
             }
         }
@@ -151,6 +159,8 @@ public abstract class Coletanea {
             for(int j = 0; j < this.listaMusicas.size(); j++){
                 if(listaMusicasRemover.get(i).getId() == this.listaMusicas.get(j).getId()){
                     this.listaMusicas.remove(j);
+                    this.duracao -= listaMusicasRemover.get(i).getDuracao();
+                    this.qtdMusicas--;
                 }
             }
         }
@@ -158,13 +168,17 @@ public abstract class Coletanea {
         return false;
     }
 
+    /*
     public void adicionarGenero(Genero genero){
         this.listaGeneros.add(genero);
     }
+     */
 
+    /*
     public void adicionarArtista(Artista artista){
         this.listaArtistas.add(artista);
     }
+     */
 
     public static void incrementarId(){
         controleId++;
