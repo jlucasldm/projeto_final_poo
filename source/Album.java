@@ -47,16 +47,18 @@ public class Album extends Coletanea {
         return false;
     }
 
-    public String retornarDados(){
+    public String retornaDados(){
         String musicas = "";
-        for(Musica aux : listaMusicas){
-            musicas += aux.retornaDados() + "___________" + "\n";
+        if(!this.listaMusicas.isEmpty()){
+            for (Musica aux : this.listaMusicas) {
+                musicas += aux.retornaDados() + "\n___________\n";
+            }
         }
         return "Album: " + this.nome + "\n" +
                 "Id: " + this.id + "\n" +
                 "Duracao: " + this.duracao + "\n" +
                 "Quantidade de faixas: " + this.qtdMusicas + "\n" +
-                "___________" + musicas;
+                musicas;
     }
 
     //falta implementar o meotodo de reprodução

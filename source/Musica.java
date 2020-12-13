@@ -82,8 +82,10 @@ public class Musica{
 
     public String retornaDados(){
         String generos = "";
-        for(Genero aux : listaGeneros){
-            generos += aux.retornaDados() + "\n";
+        if(!this.listaGeneros.isEmpty()){
+            for (Genero aux : this.listaGeneros) {
+                generos += aux.retornaDados() + "\n";
+            }
         }
         return "Musica: " + this.nome + "\n" +
                 "Id Musica: " + this.id + "\n" +
@@ -103,7 +105,7 @@ public class Musica{
         playlist.adicionarMusica(musica);
     }
 
-    public void incrementarId(){
+    public static void incrementarId(){
         controleId++;
     }
 

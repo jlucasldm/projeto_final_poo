@@ -81,7 +81,7 @@ public abstract class Coletanea {
     }
 
     // metodos
-    public abstract String retornarDados();
+    public abstract String retornaDados();
 
     // Ao adicionar uma música, automaticamente já adiciona os artistas e os generos da música ao album
     public void adicionarMusica(Musica musica){
@@ -131,7 +131,7 @@ public abstract class Coletanea {
         this.listaArtistas.add(artista);
     }
 
-    public void incrementarId(){
+    public static void incrementarId(){
         controleId++;
     }
 }

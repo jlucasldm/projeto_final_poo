@@ -27,17 +27,19 @@ public class Playlist extends Coletanea {
     }
 
     //metodos
-    public String retornarDados(){
+    public String retornaDados(){
         String musicas = "";
-        for(Musica aux : listaMusicas){
-            musicas += aux.retornaDados() + "___________" + "\n";
+        if(!this.listaMusicas.isEmpty()){
+            for (Musica aux : this.listaMusicas) {
+                musicas += aux.retornaDados() + "\n___________\n";
+            }
         }
         return "Playlist: " + this.nome + "\n" +
                 "Id: " + this.id + "\n" +
                 "Quantidade de faixas: " + this.qtdMusicas + "\n" +
                 "Duracao: " + this.duracao + "\n" +
                 "Autor: " + this.autor.getNome() + "\n" +
-                "___________" + musicas;
+                musicas;
     }
 
 }

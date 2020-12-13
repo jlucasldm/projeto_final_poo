@@ -22,7 +22,7 @@ public class Aplicacao{
         listaUsuarios.add(cadastrado);
         System.out.println("Usuario cadastrado");
 
-        var.close();
+        //var.close();
     }
 
     public static void cadastrarArtista(){
@@ -36,7 +36,7 @@ public class Aplicacao{
         listaArtistas.add(cadastrado);
         System.out.println("Artista cadastrado");
 
-        var.close();
+        //var.close();
     }
 
     //função a ser removida. acesso à musicas estará disponível por meio de artista
@@ -62,7 +62,7 @@ public class Aplicacao{
         listaMusicas.add(cadastrado);
         System.out.println("Musica cadastrada");
 
-        var.close();
+        //var.close();
     }
 
     //função a ser removida. acesso à musicas estará disponível por meio de artista
@@ -79,7 +79,7 @@ public class Aplicacao{
         listaAlbuns.add(cadastrado);
         System.out.println("Album cadastrado");
 
-        var.close();
+        //var.close();
     }
 
     //possívelmente depreciada
@@ -117,7 +117,7 @@ public class Aplicacao{
         listaGeneros.add(cadastrado);
         System.out.println("Genero cadastrado");
 
-        var.close();
+        //var.close();
     }
 
     //todos os generos já previamente cadastrados
@@ -150,7 +150,85 @@ public class Aplicacao{
         listaPlaylists.add(cadastrado);
         System.out.println("Playlist cadastrado");
 
-        var.close();
+        //var.close();
+    }
+
+    public static void consultarUsuario(){
+        Scanner var = new Scanner(System.in);
+
+        System.out.println("Id do usuario: ");
+        int idUsuario = var.nextInt();
+
+        for(Usuario aux : listaUsuarios){
+            if(aux.getId() == idUsuario){
+                System.out.println(aux.retornaDados());
+            }
+        }
+    }
+
+    public static void consultarArtista() {
+        Scanner var = new Scanner(System.in);
+
+        System.out.println("Id do artista: ");
+        int idArtista = var.nextInt();
+
+        for (Artista aux : listaArtistas){
+            if (aux.getId() == idArtista) {
+                System.out.println(aux.retornaDados());
+            }
+        }
+    }
+
+    public static void consultarMusica() {
+        Scanner var = new Scanner(System.in);
+
+        System.out.println("Id da musica: ");
+        int idMusica = var.nextInt();
+
+        for (Musica aux : listaMusicas){
+            if (aux.getId() == idMusica) {
+                System.out.println(aux.retornaDados());
+            }
+        }
+    }
+
+    public static void consultarAlbum() {
+        Scanner var = new Scanner(System.in);
+
+        System.out.println("Id do album: ");
+        int idAlbum = var.nextInt();
+
+        for (Album aux : listaAlbuns) {
+            if (aux.getId() == idAlbum) {
+                System.out.println(aux.retornaDados());
+            }
+        }
+    }
+
+    public static void consultarGenero() {
+        Scanner var = new Scanner(System.in);
+
+        System.out.println("Id do genero: ");
+        int idGenero = var.nextInt();
+
+        for (Genero aux : listaGeneros) {
+            if (aux.getEnumGenero().ordinal() == idGenero-1) {
+                System.out.println(aux.retornaDados());
+            }
+        }
+    }
+
+    public static void consultarPlaylist() {
+        Scanner var = new Scanner(System.in);
+
+        System.out.println("Id da playlist: ");
+        int idPlaylist = var.nextInt();
+
+        for (Playlist aux : listaPlaylists){
+            if (aux.getId() == idPlaylist){
+                System.out.println(aux.retornaDados());
+            }
+        }
     }
 
     public static boolean adicionarMusicaPlaylist(){
@@ -176,7 +254,7 @@ public class Aplicacao{
 
         if(musica.getNome().equals("")){
             System.out.println("Musica nao esta cadastrada");
-            var.close();
+            //var.close();
             return false;
         }
 
@@ -188,14 +266,14 @@ public class Aplicacao{
 
         if(playlist.getNome().equals("")){
             System.out.println("Playlist nao esta cadastrada");
-            var.close();
+            //var.close();
             return false;
         }
 
         playlist.adicionarMusica(musica);
         System.out.println("Musica adicionada");
 
-        var.close();
+        //var.close();
 
         return true;
     }
@@ -223,7 +301,7 @@ public class Aplicacao{
 
         if(musica.getNome().equals("")){
             System.out.println("Musica nao esta cadastrada");
-            var.close();
+            //;
             return false;
         }
 
@@ -235,7 +313,7 @@ public class Aplicacao{
 
         if(playlist.getNome().equals("")){
             System.out.println("Playlist nao esta cadastrada");
-            var.close();
+            //var.close();
             return false;
         }
 
@@ -247,7 +325,7 @@ public class Aplicacao{
             System.out.println("Playlist nao contem a musica");
         }
 
-        var.close();
+        //var.close();
 
         return true;
     }
@@ -274,7 +352,7 @@ public class Aplicacao{
 
         if(album.getNome().equals("")){
             System.out.println("Album nao esta cadastrada");
-            var.close();
+            //var.close();
             return false;
         }
 
@@ -286,14 +364,14 @@ public class Aplicacao{
 
         if(playlist.getNome().equals("")){
             System.out.println("Playlist nao esta cadastrada");
-            var.close();
+            //var.close();
             return false;
         }
 
         album.adicionarAlbumPlaylist(playlist); //é melhor rever essa função. com certeza deve ser otimizado
         //o lance é que existe pleonasmo em funções de adicao de musicas/albuns em playlists
         System.out.println("Album adicionado");
-        var.close();
+        //var.close();
         return true;
     }
 
@@ -307,11 +385,18 @@ public class Aplicacao{
             "2. Cadastrar um artista \n" +
             "3. Cadastrar uma musica \n" +
             "4. Cadastrar uma um album \n" +
-            "5. Cadastrar uma playlist \n" +
-            "6. Adicionar musica(s) a uma playlist \n" +
-            "7. Remover musica(s) de uma playlist \n" +
-            "8. Adicionar um album a uma playlist \n" +
-            "9. Sair");
+            "5. Cadastrar um genero \n" +
+            "6. Cadastrar uma playlist \n" +
+            "7. Consultar um usuario \n" + 
+            "8. Consultar um artista \n" + 
+            "9. Consultar uma musica \n" + 
+            "10. Consultar uma um album \n" + 
+            "11. Consultar um genero \n" + 
+            "12. Consultar uma playlist \n" +
+            "13. Adicionar musica(s) a uma playlist \n" +
+            "14. Remover musica(s) de uma playlist \n" +
+            "15. Adicionar um album a uma playlist \n" +
+            "16. Sair");
 
             opcao = var.nextInt();
             switch(opcao){
@@ -328,21 +413,42 @@ public class Aplicacao{
                     Aplicacao.cadastrarAlbum();
                     break;
                 case 5:
-                    Aplicacao.cadastrarPlaylist();
+                    Aplicacao.cadastrarGenero();
                     break;
                 case 6:
-                    Aplicacao.adicionarMusicaPlaylist();
+                    Aplicacao.cadastrarPlaylist();
                     break;
                 case 7:
-                    Aplicacao.removerMusicaPlaylist();
+                    Aplicacao.consultarUsuario();
                     break;
                 case 8:
+                    Aplicacao.consultarArtista();
+                    break;
+                case 9:
+                    Aplicacao.consultarMusica();
+                    break;
+                case 10:
+                    Aplicacao.consultarAlbum();
+                    break;
+                case 11:
+                    Aplicacao.consultarGenero();
+                    break;
+                case 12:
+                    Aplicacao.consultarPlaylist();
+                    break;
+                case 13:
+                    Aplicacao.adicionarMusicaPlaylist();
+                    break;
+                case 14:
+                    Aplicacao.removerMusicaPlaylist();
+                    break;
+                case 15:
                     Aplicacao.adicionarAlbumPlaylist();
                     break;
                 default:
                     break;
             }
-        }while(opcao != 10);
-        var.close();
+        }while(opcao != 16);
+        //var.close();
     }
 }

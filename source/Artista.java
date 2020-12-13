@@ -30,12 +30,14 @@ public class Artista extends Pessoa{
     //metodos
     public String retornaDados(){
         String usuarios = "";
-        for(Usuario aux : listaUsuarios){
-            usuarios += aux.retornaDados() + "||||||||||" + "\n";
+        if(!this.listaUsuarios.isEmpty()){
+            for (Usuario aux : this.listaUsuarios) {
+                usuarios += aux.retornaDados() + "\n||||||||||\n";
+            }
         }
         return "Artista: " + this.nome + "\n" +
                 "Id: " + this.id + "\n" +
-                "||||||||||" + usuarios;
+                usuarios;
     }
 
     public Musica criarMusica(String nome, float duracao, Album album, ArrayList<Genero> listaGeneros){

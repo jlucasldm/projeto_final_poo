@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
 public class Usuario extends Pessoa{
-    private String nome;
     private int id;
     private ArrayList<Artista> listaArtista = new ArrayList<Artista>();
     private ArrayList<Playlist> listaPlaylists = new ArrayList<Playlist>();
 
     public Usuario(String nome){
         super(nome);
+        incrementarId();
         this.id = controleId;
     }
 
@@ -56,12 +56,14 @@ public class Usuario extends Pessoa{
 
     public String retornaDados(){
         String playlists = "";
-        for(Playlist aux : listaPlaylists){
-            playlists += aux.retornarDados() + "//////////" + "\n";
+        if(!this.listaPlaylists.isEmpty()){
+            for (Playlist aux : this.listaPlaylists) {
+                playlists += aux.retornaDados() + "//////////" + "\n";
+            }
         }
-        return "Usuario: " + this.nome + "\n" +
-                "Id Usuario: " + this.id + "\n" +
-                "//////////" + playlists;
+        return "Usuario: " + this.getNome() + "\n" +
+                "Id Usuario: " + this.getId() + "\n" + 
+                playlists;
     }
 
     public void criarPlaylist(String nome){
