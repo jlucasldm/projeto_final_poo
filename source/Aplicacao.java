@@ -47,9 +47,9 @@ public class Aplicacao{
         System.out.println("Nome da musica: ");
         nome = var.nextLine();
 
-        int duracao;
+        double duracao;
         System.out.println("Duracao da musica: ");
-        duracao = var.nextInt();
+        duracao = var.nextDouble();
 
         //setando valores vazios para artista e album, já que a função será alterada
         /*a logica consistira em solicitar o id dos respectivos objetos (album e artista), iterar sobre
@@ -454,6 +454,48 @@ public class Aplicacao{
         return true;
     }
 
+    public static boolean aposentarArtista(){
+        Scanner var = new Scanner(System.in);
+        System.out.print("Id do artista: ");
+        int idArtista = var.nextInt();
+
+        for (Artista aux : listaArtistas){
+            if (aux.getId() == idArtista) {
+                Usuario danielDayLewis = (Usuario) aux;
+                listaArtistas.remove(aux);
+                listaUsuarios.add(danielDayLewis);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void acelerarMusica() {
+        Scanner var = new Scanner(System.in);
+
+        System.out.println("Id da musica: ");
+        int idMusica = var.nextInt();
+
+        for (Musica aux : listaMusicas){
+            if (aux.getId() == idMusica) {
+                aux.aumentarVelocidade();
+            }
+        }
+    }
+
+    public static void desacelerarMusica() {
+        Scanner var = new Scanner(System.in);
+
+        System.out.println("Id da musica: ");
+        int idMusica = var.nextInt();
+
+        for (Musica aux : listaMusicas){
+            if (aux.getId() == idMusica) {
+                aux.diminuirVelocidade();
+            }
+        }
+    }
+
     public static void main(String[] args){
         int opcao;
         Scanner var = new Scanner(System.in);
@@ -468,18 +510,21 @@ public class Aplicacao{
             "5. Cadastrar um genero \n" +
             "6. Cadastrar uma playlist \n\n" +
             "///////CONSULTAS///////\n" +
-            "7. Consultar um usuario \n" + 
-            "8. Consultar um artista \n" + 
-            "9. Consultar uma musica \n" + 
-            "10. Consultar um album \n" + 
-            "11. Consultar um genero \n" + 
+            "7. Consultar um usuario \n" +
+            "8. Consultar um artista \n" +
+            "9. Consultar uma musica \n" +
+            "10. Consultar um album \n" +
+            "11. Consultar um genero \n" +
             "12. Consultar uma playlist \n\n" +
             "///////DEMAIS OPERACOES///////\n" +
-            "13. Definir genero de uma musica\n" +
+            "13. Definir genero de uma musica \n" +
             "14. Adicionar musica(s) a uma playlist \n" +
             "15. Remover musica(s) de uma playlist \n" +
-            "16. Adicionar um album a uma playlist \n\n" +
-            "17. Sair");
+            "16. Adicionar um album a uma playlist \n" +
+            "17. Aposentar artista \n" +
+            "18. Aumentar velocidade música \n" +
+            "19. Diminuir velocidade música \n\n" +
+            "20. Sair");
 
             opcao = var.nextInt();
             switch(opcao){
@@ -531,10 +576,19 @@ public class Aplicacao{
                 case 16:
                     Aplicacao.adicionarAlbumPlaylist();
                     break;
+                case 17:
+                    Aplicacao.aposentarArtista();
+                    break;
+                case 18:
+                    Aplicacao.acelerarMusica();
+                    break;
+                case 19:
+                    Aplicacao.desacelerarMusica();
+                    break;
                 default:
                     break;
             }
-        }while(opcao != 17);
+        }while(opcao != 20);
         //var.close();
     }
 }

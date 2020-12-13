@@ -1,16 +1,15 @@
 import java.util.ArrayList;
 
-
-public class Musica{
+public class Musica implements Audio {
     private String nome;
     private static int controleId = 0;
     private int id;
-    private int duracao;
+    private double duracao;
     private Artista artista;
     private Album album;
     private ArrayList<Genero> listaGeneros = new ArrayList<>();
 
-    public Musica(String nome, int duracao, Artista artista, Album album){
+    public Musica(String nome, double duracao, Artista artista, Album album){
         this.nome = nome;
         incrementarId();
         this.id = controleId;
@@ -20,7 +19,7 @@ public class Musica{
         this.album = album;
         this.album.getListaMusicas().add(this);
         this.album.setDuracao(this.album.getDuracao() + this.duracao);
-        this.album.setQtdMusicas(this.album.getQtdMusicas() + 1); 
+        this.album.setQtdMusicas(this.album.getQtdMusicas() + 1);
     }
 
     public void setNome(String nome){
@@ -62,16 +61,16 @@ public class Musica{
         return this.id;
     }
 
-    public void setDuracao(int duracao){
-        if(!(float.class.isInstance(duracao))){
-            throw new IllegalArgumentException("APENAS FLOAT");
+    public void setDuracao(double duracao){
+        if(!(double.class.isInstance(duracao))){
+            throw new IllegalArgumentException("APENAS DOUBLE");
         }
         else {
             this.duracao = duracao;
         }
     }
 
-    public int getDuracao(){
+    public double getDuracao(){
         return this.duracao;
     }
 
@@ -119,6 +118,14 @@ public class Musica{
         this.listaGeneros.add(genero);
     }
 
+    public void aumentarVelocidade(){
+        this.duracao = this.duracao * (1.25);
+    };
+
+    public void diminuirVelocidade(){
+        this.duracao = this.duracao * (0.75);
+    }
+
     public String retornaDados(){
         String generos = "";
         if(!this.listaGeneros.isEmpty()){
@@ -151,22 +158,3 @@ public class Musica{
     }
 
 }
-/*
-Gênero como enum?
-
-
-Áudio (abstract class) -> [nome, id, genero]
-    Rádio (class) AOVIVO BATEPAPO -> [estação]
-    Podcast (class) GRAVADO BATEPAPO -> [participantes(Usuarios)]
-    Música (class) GRAVADO MELODIA -> []
-
-    Gravado (abstract class) -> [aumentarVelocidade(), diminuirVelocidade(), reproduzir()] [duracao, artista,  album, genero]
-    AoVivo (abstract class) -> [sintonizarProxima(), sintonizarAnterior()] [horarioInicio, participantes(Usuarios)]
-
-    BatePapo (interface) -> [adicionarParticipantes(),  removerParticipantes()]
-    Melodia (interface) -> [removerPlaylist(), adicionarPlaylist()]
-
-Audio <- AoVivo <- BatePapo <- Rádio
-Audio <- Gravado <- BatePapo <- Podcast
-Audio <- Gravado <- Melodia <- Musica
-*/

@@ -79,6 +79,7 @@ public class Genero{
         this.listaArtistas.add(artista);
     }
      */
+    
     public String retornaDados(){
         return "Genero: " + this.enumGenero.toString();
     }

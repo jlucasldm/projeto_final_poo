@@ -1,47 +1,29 @@
-//import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class Artista extends Usuario{
-    //private int id;
-    //protected ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>(); //usuarios que segem o artista
+    private ArrayList<Musica> musicasProprias = new ArrayList<Musica>();
+    private ArrayList<Album> albumsProprios = new ArrayList<Album>();
 
     public Artista(String nome){
         super(nome);
-        //incrementarId();
-        //this.id = controleId;
     }
 
     //gets e sets
-    /*
-    public int getId() {
-        return this.id;
+    public ArrayList<Musica> getMusicasProprias() {
+        return this.musicasProprias;
     }
 
-    public void setId(int id) {
-        if(!(Integer.class.isInstance(id))){
-            throw new IllegalArgumentException("APENAS INTEGER");
-        }
-        else {
-            this.id = id;
-        }
+    public void setMusicasProprias(ArrayList<Musica> musicasProprias) {
+        this.musicasProprias = musicasProprias;
     }
-    */
 
-    /*
-    public ArrayList<Usuario> getListaUsuarios() {
-        return this.listaUsuarios;
+    public ArrayList<Album> getAlbumsProprios() {
+        return this.albumsProprios;
     }
-    */
 
-    /*
-    public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
-        if(!(listaUsuarios instanceof ArrayList<?>)){
-            throw new IllegalArgumentException("APENAS ARRAYLIST<USUARIO>");
-        }
-        else {
-            this.listaUsuarios = listaUsuarios;
-        }
+    public void setAlbumsProprios(ArrayList<Album> albumsProprios) {
+        this.albumsProprios = albumsProprios;
     }
-    */
 
     //metodos
 
@@ -50,26 +32,53 @@ public class Artista extends Usuario{
         Musica novaMusica = new Musica(nome, duracao, this, album);
         novaMusica.setListaGeneros(listaGeneros);
         this.listaMusicas.add(novaMusica);
+        this.musicasProprias.add(novaMusica);
         return novaMusica;
     }
 
     public Album criarAlbum(String nome, ArrayList<Musica> listaMusicas){
         Album novoAlbum = new Album(nome, this);
         novoAlbum.setListaMusicas(listaMusicas);
+        this.listaAlbuns.add(novoAlbum);
+        this.albumsProprios.add(novoAlbum);
+        return novoAlbum;
+    }
+
+    public Album criarAlbum(String nome){
+        Album novoAlbum = new Album(nome, this);
+        this.listaAlbuns.add(novoAlbum);
+        this.albumsProprios.add(novoAlbum);
         return novoAlbum;
     }
      */
 
+    public Album adicionarMusicasAlbum(Album album, ArrayList<Musica> listaMusica){
+        album.setListaMusicas(listaMusicas);
+        for(Musica aux : listaMusica){
+            this.listaMusicas.add(aux);
+            this.musicasProprias.add(aux);
+        }
+        return album;
+    }
+
+    public Album adicionarMusicasAlbum(Album album, Musica musica){
+        this.listaMusicas.add(musica);
+        this.musicasProprias.add(musica);
+        return album;
+    }
+
     @Override
     public String retornaDados() {
-        /*
-        String usuarios = "";
-        if (!this.listaUsuarios.isEmpty()) {
-            for (Usuario aux : this.listaUsuarios) {
-                usuarios += aux.retornaDados() + "\n||||||||||\n";
-            }
+        String albums = "Albums: \n";
+        for(Album aux : this.albumsProprios){
+            albums = albums + aux.getNome() + "\n";
         }
-        */
-        return "Artista: " + this.getNome() + "\n" + "Id: " + this.getId() + "\n"; //+ usuarios;
+        String musicas = "Musicas: \n";
+        for(Musica aux : this.musicasProprias){
+            musicas = musicas + aux.getNome() + "\n";
+        }
+
+        return "Artista: " + this.getNome() + "\n" + "Id: " + this.getId() + "\n" + musicas + albums; //+ usuarios;
     }
+
 }

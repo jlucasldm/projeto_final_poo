@@ -88,7 +88,7 @@ public class Usuario extends Pessoa{
             }
         }
         return "Usuario: " + this.getNome() + "\n" +
-                "Id Usuario: " + this.getId() + "\n" + 
+                "Id Usuario: " + this.getId() + "\n" +
                 playlists;
     }
 
