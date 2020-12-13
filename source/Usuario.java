@@ -65,13 +65,6 @@ public class Usuario extends Pessoa{
     }
 
     //metodos
-    /*
-    public void seguirArtista(Artista artista){
-        artista.getListaUsuarios().add(this);
-        this.listaArtista.add(artista);
-    }
-    */
-
     public void adicionarPlaylist(Playlist playlist){
         this.listaPlaylists.add(playlist);
     }
@@ -84,7 +77,7 @@ public class Usuario extends Pessoa{
             }
         }
         return "Usuario: " + this.getNome() + "\n" +
-                "Id Usuario: " + this.getId() + "\n" + 
+                "Id Usuario: " + this.getId() + "\n" +
                 playlists;
     }
 

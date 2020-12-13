@@ -431,6 +431,22 @@ public class Aplicacao{
         return true;
     }
 
+    public static boolean aposentarArtista(){
+        Scanner var = new Scanner(System.in);
+        System.out.print("Id do artista: ");
+        int idArtista = var.nextInt();
+
+        for (Artista aux : listaArtistas){
+            if (aux.getId() == idArtista) {
+                Usuario danielDayLewis = (Usuario) aux;
+                listaArtistas.remove(aux);
+                listaUsuarios.add(danielDayLewis);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args){
         int opcao = 0;
         Scanner var = new Scanner(System.in);
@@ -445,17 +461,18 @@ public class Aplicacao{
             "5. Cadastrar um genero \n" +
             "6. Cadastrar uma playlist \n\n" +
             "///////CONSULTAS///////\n" +
-            "7. Consultar um usuario \n" + 
-            "8. Consultar um artista \n" + 
-            "9. Consultar uma musica \n" + 
-            "10. Consultar um album \n" + 
-            "11. Consultar um genero \n" + 
+            "7. Consultar um usuario \n" +
+            "8. Consultar um artista \n" +
+            "9. Consultar uma musica \n" +
+            "10. Consultar um album \n" +
+            "11. Consultar um genero \n" +
             "12. Consultar uma playlist \n\n" +
             "///////DEMAIS OPERACOES///////\n" +
             "13. Adicionar musica(s) a uma playlist \n" +
             "14. Remover musica(s) de uma playlist \n" +
             "15. Adicionar um album a uma playlist \n\n" +
-            "16. Sair");
+            "16. Aposentar artista \n" +
+            "17. Sair");
 
             opcao = var.nextInt();
             switch(opcao){
@@ -503,6 +520,9 @@ public class Aplicacao{
                     break;
                 case 15:
                     Aplicacao.adicionarAlbumPlaylist();
+                    break;
+                case 16:
+                    Aplicacao.aposentarArtista();
                     break;
                 default:
                     break;
