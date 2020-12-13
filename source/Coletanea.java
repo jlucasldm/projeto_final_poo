@@ -4,7 +4,7 @@ public abstract class Coletanea {
     protected String nome; //retorna
     protected static int controleId = 0;  //retorna
     protected int qtdMusicas; //é eum função da quantidade de elementos da lista de musicas
-    protected int duracao;  //é eum função da quantidade da duração de cada musica (isso ainda nao foi implementado)
+    protected double duracao;  //é eum função da quantidade da duração de cada musica (isso ainda nao foi implementado)
 
     //atributo estatico sinalizando a reproducao de musica
     protected ArrayList<Genero> listaGeneros = new ArrayList<Genero>();   //retorna
@@ -63,12 +63,12 @@ public abstract class Coletanea {
         }
     }
 
-    public int getDuracao() {
+    public double getDuracao() {
         return this.duracao;
     }
 
-    public void setDuracao(int duracao) {
-        if(!(Integer.class.isInstance(qtdMusicas))){
+    public void setDuracao(double duracao) {
+        if(!(double.class.isInstance(qtdMusicas))){
             throw new IllegalArgumentException("APENAS INTEGER");
         }
         else {
