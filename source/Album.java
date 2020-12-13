@@ -17,7 +17,12 @@ public class Album extends Coletanea {
     }
 
     public void setAutorAlbum(Artista autorAlbum){
-        this.autorAlbum = autorAlbum;
+        if(!(autorAlbum instanceof Artista)){
+            throw new IllegalArgumentException("APENAS ARTISTA");
+        }
+        else {
+            this.autorAlbum = autorAlbum;
+        }
     }
 
     public int getId(){
@@ -25,7 +30,12 @@ public class Album extends Coletanea {
     }
 
     public void setId(int id){
-        this.id = id;
+        if(!(Integer.class.isInstance(id))){
+            throw new IllegalArgumentException("APENAS INTEGER");
+        }
+        else {
+            this.id = id;
+        }
     }
 
     //metodos

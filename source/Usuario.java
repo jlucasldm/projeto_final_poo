@@ -17,7 +17,12 @@ public class Usuario extends Pessoa{
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if(!(nome instanceof String)){
+            throw new IllegalArgumentException("APENAS STRINGS");
+        }
+        else {
+            this.nome = nome;
+        }
     }
 
     public int getId() {
@@ -25,7 +30,12 @@ public class Usuario extends Pessoa{
     }
 
     public void setId(int id) {
-        this.id = id;
+        if(!(Integer.class.isInstance(id))){
+            throw new IllegalArgumentException("APENAS INTEGER");
+        }
+        else {
+            this.id = id;
+        }
     }
 
     public ArrayList<Artista> getListaArtista() {
@@ -33,7 +43,12 @@ public class Usuario extends Pessoa{
     }
 
     public void setListaArtista(ArrayList<Artista> listaArtista) {
-        this.listaArtista = listaArtista;
+        if(!(listaArtista instanceof ArrayList<?>)){
+            throw new IllegalArgumentException("APENAS ARRAYLIST<ARTISTA>");
+        }
+        else {
+            this.listaArtista = listaArtista;
+        }
     }
 
     public ArrayList<Playlist> getListaPlaylists() {
@@ -41,7 +56,12 @@ public class Usuario extends Pessoa{
     }
 
     public void setListaPlaylists(ArrayList<Playlist> listaPlaylists) {
-        this.listaPlaylists = listaPlaylists;
+        if(!(listaPlaylists instanceof ArrayList<?>)){
+            throw new IllegalArgumentException("APENAS ARRAYLIST<PLAYLIST>");
+        }
+        else {
+            this.listaPlaylists = listaPlaylists;
+        }
     }
 
     //metodos

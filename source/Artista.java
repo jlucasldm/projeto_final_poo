@@ -16,7 +16,12 @@ public class Artista extends Pessoa{
     }
 
     public void setId(int id) {
-        this.id = id;
+        if(!(Integer.class.isInstance(id))){
+            throw new IllegalArgumentException("APENAS INTEGER");
+        }
+        else {
+            this.id = id;
+        }
     }
 
     public ArrayList<Usuario> getListaUsuarios() {
@@ -24,7 +29,12 @@ public class Artista extends Pessoa{
     }
 
     public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
+        if(!(listaUsuarios instanceof ArrayList<?>)){
+            throw new IllegalArgumentException("APENAS ARRAYLIST<USUARIO>");
+        }
+        else {
+            this.listaUsuarios = listaUsuarios;
+        }
     }
 
     //metodos

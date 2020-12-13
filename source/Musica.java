@@ -20,7 +20,12 @@ public class Musica{
     }
 
     public void setNome(String nome){
-        this.nome = nome;
+        if(!(nome instanceof String)){
+            throw new IllegalArgumentException("APENAS STRINGS");
+        }
+        else {
+            this.nome = nome;
+        }
     }
 
     public String getNome(){
@@ -28,7 +33,12 @@ public class Musica{
     }
 
     public static void setControleId(int id){
-        controleId = id;
+        if(!(Integer.class.isInstance(id))){
+            throw new IllegalArgumentException("APENAS INTEGER");
+        }
+        else {
+            controleId = id;
+        }
     }
 
     public static int getControleId(){
@@ -36,7 +46,12 @@ public class Musica{
     }
 
     public void setId(int id){
-        this.id = id;
+        if(!(Integer.class.isInstance(id))){
+            throw new IllegalArgumentException("APENAS INTEGER");
+        }
+        else {
+            this.id = id;
+        }
     }
 
     public int getId(){
@@ -44,7 +59,12 @@ public class Musica{
     }
 
     public void setDuracao(float duracao){
-        this.duracao = duracao;
+        if(!(float.class.isInstance(duracao))){
+            throw new IllegalArgumentException("APENAS FLOAT");
+        }
+        else {
+            this.duracao = duracao;
+        }
     }
 
     public float getDuracao(){
@@ -52,7 +72,12 @@ public class Musica{
     }
 
     public void setArtista(Artista artista){
-        this.artista = artista;
+        if(!(artista instanceof Artista)){
+            throw new IllegalArgumentException("APENAS ARTISTA");
+        }
+        else {
+            this.artista = artista;
+        }
     }
 
     public Artista getArtista(){
@@ -60,7 +85,12 @@ public class Musica{
     }
 
     public void setAlbum(Album album){
-        this.album = album;
+        if(!(album instanceof Album)){
+            throw new IllegalArgumentException("APENAS ALBUM");
+        }
+        else {
+            this.album = album;
+        }
     }
 
     public Album getAlbum(){
@@ -68,7 +98,12 @@ public class Musica{
     }
 
     public void setListaGeneros(ArrayList<Genero> listaGeneros){
-        this.listaGeneros = listaGeneros;
+        if(!(listaGeneros instanceof ArrayList<?>)){
+            throw new IllegalArgumentException("APENAS ARRAYLIST<GENERO>");
+        }
+        else {
+            this.listaGeneros = listaGeneros;
+        }
     }
 
     public ArrayList<Genero> getListaGeneros(){

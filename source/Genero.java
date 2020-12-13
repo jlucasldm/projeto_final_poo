@@ -16,7 +16,12 @@ public class Genero{
     }
 
     public void setEnumGenero(EnumGenero enumGenero) {
-        this.enumGenero = enumGenero;
+        if(!(enumGenero instanceof EnumGenero)){
+            throw new IllegalArgumentException("APENAS ENUMGENERO");
+        }
+        else {
+            this.enumGenero = enumGenero;
+        }
     }
 
     public ArrayList<Album> getListaAlbuns() {
@@ -24,7 +29,12 @@ public class Genero{
     }
 
     public void setListaAlbuns(ArrayList<Album> listaAlbuns) {
-        this.listaAlbuns = listaAlbuns;
+        if(!(listaAlbuns instanceof ArrayList<?>)){
+            throw new IllegalArgumentException("APENAS ARRAYLIST<ALBUM>");
+        }
+        else {
+            this.listaAlbuns = listaAlbuns;
+        }
     }
 
     public ArrayList<Musica> getListaMusicas() {
@@ -32,7 +42,12 @@ public class Genero{
     }
 
     public void setListaMusicas(ArrayList<Musica> listaMusicas) {
-        this.listaMusicas = listaMusicas;
+        if(!(listaMusicas instanceof ArrayList<?>)){
+            throw new IllegalArgumentException("APENAS ARRAYLIST<MUSICA>");
+        }
+        else {
+            this.listaMusicas = listaMusicas;
+        }
     }
 
     public ArrayList<Artista> getListaArtistas() {
@@ -40,7 +55,12 @@ public class Genero{
     }
 
     public void setListaArtistas(ArrayList<Artista> listaArtistas) {
-        this.listaArtistas = listaArtistas;
+        if(!(listaArtistas instanceof ArrayList<?>)){
+            throw new IllegalArgumentException("APENAS ARRAYLIST<ARTISTA>");
+        }
+        else {
+            this.listaArtistas = listaArtistas;
+        }
     }
 
     //metodos

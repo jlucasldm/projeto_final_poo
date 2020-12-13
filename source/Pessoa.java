@@ -21,7 +21,12 @@ public abstract class Pessoa {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if(!(nome instanceof String)){
+            throw new IllegalArgumentException("APENAS STRINGS");
+        }
+        else {
+            this.nome = nome;
+        }
     }
 
     public ArrayList<Genero> getListaGeneros() {
@@ -29,7 +34,12 @@ public abstract class Pessoa {
     }
 
     public void setListaGeneros(ArrayList<Genero> listaGeneros) {
-        this.listaGeneros = listaGeneros;
+        if(!(listaGeneros instanceof ArrayList<?>)){
+            throw new IllegalArgumentException("APENAS ARRAYLIST<GENERO>");
+        }
+        else {
+            this.listaGeneros = listaGeneros;
+        }
     }
 
     public ArrayList<Musica> getListaMusicas() {
@@ -37,7 +47,12 @@ public abstract class Pessoa {
     }
 
     public void setListaMusicas(ArrayList<Musica> listaMusicas) {
-        this.listaMusicas = listaMusicas;
+        if(!(listaMusicas instanceof ArrayList<?>)){
+            throw new IllegalArgumentException("APENAS ARRAYLIST<MUSICA>");
+        }
+        else {
+            this.listaMusicas = listaMusicas;
+        }
     }
 
     public ArrayList<Album> getListaAlbuns() {
@@ -45,7 +60,12 @@ public abstract class Pessoa {
     }
 
     public void setListaAlbuns(ArrayList<Album> listaAlbuns) {
-        this.listaAlbuns = listaAlbuns;
+        if(!(listaAlbuns instanceof ArrayList<?>)){
+            throw new IllegalArgumentException("APENAS ARRAYLIST<ALBUM>");
+        }
+        else {
+            this.listaAlbuns = listaAlbuns;
+        }
     }
 
     //metodos
@@ -60,6 +80,5 @@ public abstract class Pessoa {
     public void adicionarAlbum(Album album){
         this.listaAlbuns.add(album);
     }
-
 
 }
