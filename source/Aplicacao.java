@@ -447,6 +447,32 @@ public class Aplicacao{
         return false;
     }
 
+    public static void acelerarMusica() {
+        Scanner var = new Scanner(System.in);
+
+        System.out.println("Id da musica: ");
+        int idMusica = var.nextInt();
+
+        for (Musica aux : listaMusicas){
+            if (aux.getId() == idMusica) {
+                aux.aumentarVelocidade();
+            }
+        }
+    }
+
+    public static void desacelerarMusica() {
+        Scanner var = new Scanner(System.in);
+
+        System.out.println("Id da musica: ");
+        int idMusica = var.nextInt();
+
+        for (Musica aux : listaMusicas){
+            if (aux.getId() == idMusica) {
+                aux.diminuirVelocidade();
+            }
+        }
+    }
+
     public static void main(String[] args){
         int opcao = 0;
         Scanner var = new Scanner(System.in);
@@ -470,8 +496,10 @@ public class Aplicacao{
             "///////DEMAIS OPERACOES///////\n" +
             "13. Adicionar musica(s) a uma playlist \n" +
             "14. Remover musica(s) de uma playlist \n" +
-            "15. Adicionar um album a uma playlist \n\n" +
+            "15. Adicionar um album a uma playlist \n" +
             "16. Aposentar artista \n" +
+            "17. Aumentar velocidade música \n" +
+            "18. Diminuir velocidade música \n\n" +
             "17. Sair");
 
             opcao = var.nextInt();
@@ -523,6 +551,12 @@ public class Aplicacao{
                     break;
                 case 16:
                     Aplicacao.aposentarArtista();
+                    break;
+                case 17:
+                    Aplicacao.acelerarMusica();
+                    break;
+                case 18:
+                    Aplicacao.desacelerarMusica();
                     break;
                 default:
                     break;
