@@ -1,16 +1,17 @@
 import java.util.ArrayList;
 
-public class Artista extends Pessoa{
-    private int id;
-    protected ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>(); //usuarios que segem o artista
+public class Artista extends Usuario{
+    //private int id;
+    //protected ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>(); //usuarios que segem o artista
 
     public Artista(String nome){
         super(nome);
-        incrementarId();
-        this.id = controleId;
+        //incrementarId();
+        //this.id = controleId;
     }
 
     //gets e sets
+    /*
     public int getId() {
         return this.id;
     }
@@ -23,11 +24,15 @@ public class Artista extends Pessoa{
             this.id = id;
         }
     }
+    */
 
+    /*
     public ArrayList<Usuario> getListaUsuarios() {
         return this.listaUsuarios;
     }
+    */
 
+    /*
     public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
         if(!(listaUsuarios instanceof ArrayList<?>)){
             throw new IllegalArgumentException("APENAS ARRAYLIST<USUARIO>");
@@ -36,21 +41,11 @@ public class Artista extends Pessoa{
             this.listaUsuarios = listaUsuarios;
         }
     }
+    */
 
     //metodos
-    public String retornaDados(){
-        String usuarios = "";
-        if(!this.listaUsuarios.isEmpty()){
-            for (Usuario aux : this.listaUsuarios) {
-                usuarios += aux.retornaDados() + "\n||||||||||\n";
-            }
-        }
-        return "Artista: " + this.nome + "\n" +
-                "Id: " + this.id + "\n" +
-                usuarios;
-    }
 
-    public Musica criarMusica(String nome, float duracao, Album album, ArrayList<Genero> listaGeneros){
+    public Musica criarMusica(String nome, int duracao, Album album, ArrayList<Genero> listaGeneros){
         Musica novaMusica = new Musica(nome, duracao, this, album);
         novaMusica.setListaGeneros(listaGeneros);
         this.listaMusicas.add(novaMusica);
@@ -61,5 +56,18 @@ public class Artista extends Pessoa{
         Album novoAlbum = new Album(nome, this);
         novoAlbum.setListaMusicas(listaMusicas);
         return novoAlbum;
+    }
+
+    @Override
+    public String retornaDados() {
+        /*
+        String usuarios = "";
+        if (!this.listaUsuarios.isEmpty()) {
+            for (Usuario aux : this.listaUsuarios) {
+                usuarios += aux.retornaDados() + "\n||||||||||\n";
+            }
+        }
+        */
+        return "Artista: " + this.getNome() + "\n" + "Id: " + this.getId() + "\n"; //+ usuarios;
     }
 }

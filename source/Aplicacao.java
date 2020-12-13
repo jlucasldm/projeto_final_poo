@@ -20,7 +20,7 @@ public class Aplicacao{
 
         Usuario cadastrado = new Usuario(nome);
         listaUsuarios.add(cadastrado);
-        System.out.println("Usuario cadastrado");
+        System.out.println("Usuario cadastrado\n" + cadastrado.retornaDados());
 
         //var.close();
     }
@@ -34,50 +34,99 @@ public class Aplicacao{
 
         Artista cadastrado = new Artista(nome);
         listaArtistas.add(cadastrado);
-        System.out.println("Artista cadastrado");
+        System.out.println("Artista cadastrado\n" + cadastrado.retornaDados());
 
         //var.close();
     }
 
     //função a ser removida. acesso à musicas estará disponível por meio de artista
-    public static void cadastrarMusica(){
+    public static boolean cadastrarMusica(){
         //String nome, float duracao, Artista artista, Album album
         Scanner var = new Scanner(System.in);
         String nome = "";
         System.out.println("Nome da musica: ");
         nome = var.nextLine();
 
-        float duracao = 0;
+        int duracao = 0;
         System.out.println("Duracao da musica: ");
-        duracao = var.nextFloat();
+        duracao = var.nextInt();
 
         //setando valores vazios para artista e album, já que a função será alterada
         /*a logica consistira em solicitar o id dos respectivos objetos (album e artista), iterar sobre
         o arrayList de cada tipo buscando a existencia da instancias. Caso possitivo, seria repassada a 
         referencia para a criação da instancia de musica. Caso contrario, sera passado um objeto vazio*/
+
+
+        int idArtista = 0;
+        System.out.println("Id do artista: ");
+        idArtista = var.nextInt();
+
         Artista auxArtista = new Artista("");
+        for(Artista aux : listaArtistas){
+            if(aux.getId() == idArtista){
+                auxArtista = aux;
+            }
+        }
+
+        if(auxArtista.getNome().equals("")){
+            System.out.println("Artista nao cadastrado");
+            return false;
+        }
+
+        int idAlbum = 0;
+        System.out.println("Id do album: ");
+        idAlbum = var.nextInt();
+
         Album auxAlbum = new Album("", auxArtista);
+        for(Album aux : listaAlbuns){
+            if(aux.getId() == idAlbum){
+                auxAlbum = aux;
+            }
+        }
+
+        if(auxAlbum.getNome().equals("")){
+            System.out.println("Album nao cadastrado");
+            return false;
+        }
 
         Musica cadastrado = new Musica(nome, duracao, auxArtista, auxAlbum);
         listaMusicas.add(cadastrado);
-        System.out.println("Musica cadastrada");
+        System.out.println("Musica cadastrada\n" + cadastrado.retornaDados());
+
+        return true;
 
         //var.close();
     }
 
     //função a ser removida. acesso à musicas estará disponível por meio de artista
-    public static void cadastrarAlbum(){
+    public static boolean cadastrarAlbum(){
         //String nome, Artista autorAlbum
         Scanner var = new Scanner(System.in);
         String nome = "";
         System.out.println("Nome do album: ");
         nome = var.nextLine();
 
+        int idArtista = 0;
+        System.out.println("Id do artista: ");
+        idArtista = var.nextInt();
+
         Artista auxArtista = new Artista("");
+        for (Artista aux : listaArtistas) {
+            if (aux.getId() == idArtista) {
+                auxArtista = aux;
+            }
+        }
+
+        if (auxArtista.getNome().equals("")) {
+            System.out.println("Artista nao cadastrado");
+            return false;
+        }
 
         Album cadastrado = new Album(nome, auxArtista);
         listaAlbuns.add(cadastrado);
-        System.out.println("Album cadastrado");
+        System.out.println("Album cadastrado\n" + cadastrado.retornaDados());
+
+        return true;
 
         //var.close();
     }
@@ -95,7 +144,7 @@ public class Aplicacao{
                             "7.  Rock \n" +
                             "8.  Sertanejo \n" +
                             "9.  Pagode \n" +
-                            "10. Piseiro" +
+                            "10. Piseiro \n" +
                             "11. MPB \n" +
                             "12. EDM \n" +
                             "13. RANDB \n" +
@@ -115,7 +164,7 @@ public class Aplicacao{
 
         Genero cadastrado = new Genero(enumGenero);
         listaGeneros.add(cadastrado);
-        System.out.println("Genero cadastrado");
+        System.out.println("Genero cadastrado \n" + cadastrado.retornaDados());
 
         //var.close();
     }
@@ -129,7 +178,7 @@ public class Aplicacao{
         }
     }
 
-    public static void cadastrarPlaylist(){
+    public static boolean cadastrarPlaylist(){
         //String nome, Usuario autor
         Scanner var = new Scanner(System.in);
         String nome = "";
@@ -139,16 +188,23 @@ public class Aplicacao{
         System.out.println("Id do autor: ");
         int idAutor = var.nextInt();
 
-        Usuario autor = new Usuario("Nome");
+        Usuario autor = new Usuario("");
         for(Usuario usuario : listaUsuarios){
             if(usuario.getId() == idAutor){
                 autor = usuario;
             }
         }
 
+        if(autor.getNome().equals("")){
+            System.out.println("Usuario nao cadastrado");
+            return false;
+        }
+
         Playlist cadastrado = new Playlist(nome, autor);
         listaPlaylists.add(cadastrado);
-        System.out.println("Playlist cadastrado");
+        System.out.println("Playlist cadastrada\n" + cadastrado.retornaDados());
+
+        return true;
 
         //var.close();
     }
@@ -243,7 +299,7 @@ public class Aplicacao{
         Album auxAlbum = new Album("", auxArtista);
         Usuario auxUsuario = new Usuario("Nome");
 
-        Musica musica = new Musica("Nome", (float) 30.0, auxArtista, auxAlbum);
+        Musica musica = new Musica("Nome", (int) 30.0, auxArtista, auxAlbum);
         Playlist playlist = new Playlist("", auxUsuario);
 
         for(Musica aux : listaMusicas){
@@ -290,7 +346,7 @@ public class Aplicacao{
         Album auxAlbum = new Album("", auxArtista);
         Usuario auxUsuario = new Usuario("");
 
-        Musica musica = new Musica("Nome", (float) 30.0, auxArtista, auxAlbum);
+        Musica musica = new Musica("Nome", (int) 30.0, auxArtista, auxAlbum);
         Playlist playlist = new Playlist("", auxUsuario);
 
         for(Musica aux : listaMusicas){
@@ -381,21 +437,24 @@ public class Aplicacao{
 
         do{
             System.out.println(
+            "///////CADASTROS///////\n" +
             "1. Cadastrar um usuario \n" +
             "2. Cadastrar um artista \n" +
             "3. Cadastrar uma musica \n" +
-            "4. Cadastrar uma um album \n" +
+            "4. Cadastrar um album \n" +
             "5. Cadastrar um genero \n" +
-            "6. Cadastrar uma playlist \n" +
+            "6. Cadastrar uma playlist \n\n" +
+            "///////CONSULTAS///////\n" +
             "7. Consultar um usuario \n" + 
             "8. Consultar um artista \n" + 
             "9. Consultar uma musica \n" + 
-            "10. Consultar uma um album \n" + 
+            "10. Consultar um album \n" + 
             "11. Consultar um genero \n" + 
-            "12. Consultar uma playlist \n" +
+            "12. Consultar uma playlist \n\n" +
+            "///////DEMAIS OPERACOES///////\n" +
             "13. Adicionar musica(s) a uma playlist \n" +
             "14. Remover musica(s) de uma playlist \n" +
-            "15. Adicionar um album a uma playlist \n" +
+            "15. Adicionar um album a uma playlist \n\n" +
             "16. Sair");
 
             opcao = var.nextInt();

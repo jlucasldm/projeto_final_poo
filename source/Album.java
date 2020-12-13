@@ -6,6 +6,7 @@ public class Album extends Coletanea {
     public Album(String nome, Artista autorAlbum){
         super(nome);
         this.autorAlbum = autorAlbum;
+        this.autorAlbum.getListaAlbuns().add(this);
         this.listaArtistas.add(autorAlbum);
         incrementarId();
         this.id = controleId;

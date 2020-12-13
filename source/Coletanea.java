@@ -4,14 +4,14 @@ public abstract class Coletanea {
     protected String nome; //retorna
     protected static int controleId = 0;  //retorna
     protected int qtdMusicas; //é eum função da quantidade de elementos da lista de musicas
-    protected float duracao;  //é eum função da quantidade da duração de cada musica (isso ainda nao foi implementado)
+    protected int duracao;  //é eum função da quantidade da duração de cada musica (isso ainda nao foi implementado)
 
     //atributo estatico sinalizando a reproducao de musica
     protected ArrayList<Genero> listaGeneros = new ArrayList<Genero>();   //retorna
     protected ArrayList<Musica> listaMusicas = new ArrayList<Musica>();   //retorna
     protected ArrayList<Artista> listaArtistas = new ArrayList<Artista>();    //retorna
 
-    public Coletanea(String nome){
+    protected Coletanea(String nome){
         this.nome = nome;
         if(listaMusicas.size() == 0){
             this.duracao = 0;
@@ -63,13 +63,13 @@ public abstract class Coletanea {
         }
     }
 
-    public float getDuracao() {
+    public int getDuracao() {
         return this.duracao;
     }
 
-    public void setDuracao(float duracao) {
-        if(!(float.class.isInstance(qtdMusicas))){
-            throw new IllegalArgumentException("APENAS FLOAT");
+    public void setDuracao(int duracao) {
+        if(!(Integer.class.isInstance(qtdMusicas))){
+            throw new IllegalArgumentException("APENAS INTEGER");
         }
         else {
             this.duracao = duracao;

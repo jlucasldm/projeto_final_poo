@@ -5,6 +5,7 @@ public class Playlist extends Coletanea {
     public Playlist(String nome, Usuario autor){
         super(nome);
         this.autor = autor;
+        this.autor.getListaPlaylists().add(this);
         incrementarId();
         this.id = controleId;
     }

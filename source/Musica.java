@@ -5,18 +5,22 @@ public class Musica{
     private String nome;
     private static int controleId = 0;
     private int id;
-    private float duracao;
+    private int duracao;
     private Artista artista;    //pode ter mais de um artista
     private Album album;
     private ArrayList<Genero> listaGeneros = new ArrayList<Genero>();
 
-    public Musica(String nome, float duracao, Artista artista, Album album){
+    public Musica(String nome, int duracao, Artista artista, Album album){
         this.nome = nome;
         incrementarId();
         this.id = controleId;
         this.duracao = duracao;
         this.artista = artista;
+        this.artista.getListaMusicas().add(this);
         this.album = album;
+        this.album.getListaMusicas().add(this);
+        this.album.setDuracao(this.album.getDuracao() + this.duracao);
+        this.album.setQtdMusicas(this.album.getQtdMusicas() + 1); 
     }
 
     public void setNome(String nome){
@@ -58,7 +62,7 @@ public class Musica{
         return this.id;
     }
 
-    public void setDuracao(float duracao){
+    public void setDuracao(int duracao){
         if(!(float.class.isInstance(duracao))){
             throw new IllegalArgumentException("APENAS FLOAT");
         }
@@ -67,7 +71,7 @@ public class Musica{
         }
     }
 
-    public float getDuracao(){
+    public int getDuracao(){
         return this.duracao;
     }
 
