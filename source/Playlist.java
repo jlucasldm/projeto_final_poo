@@ -15,7 +15,12 @@ public class Playlist extends Coletanea {
     }
 
     public void setAutor(Usuario autor){
-        this.autor = autor;
+        if(!(autor instanceof Usuario)){
+            throw new IllegalArgumentException("APENAS USUARIO");
+        }
+        else {
+            this.autor = autor;
+        }
     }
 
     public int getId(){
@@ -23,7 +28,12 @@ public class Playlist extends Coletanea {
     }
 
     public void setId(int id){
-        this.id = id;
+        if(!(Integer.class.isInstance(id))){
+            throw new IllegalArgumentException("APENAS INTEGER");
+        }
+        else {
+            this.id = id;
+        }
     }
 
     //metodos

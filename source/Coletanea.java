@@ -29,7 +29,12 @@ public abstract class Coletanea {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if(!(nome instanceof String)){
+            throw new IllegalArgumentException("APENAS STRINGS");
+        }
+        else {
+            this.nome = nome;
+        }
     }
 
     public static int getControleId() {
@@ -37,7 +42,12 @@ public abstract class Coletanea {
     }
 
     public static void setControleId(int id) {
-        controleId = id;
+        if(!(Integer.class.isInstance(id))){
+            throw new IllegalArgumentException("APENAS INTEGER");
+        }
+        else {
+            controleId = id;
+        }
     }
 
     public int getQtdMusicas() {
@@ -45,7 +55,12 @@ public abstract class Coletanea {
     }
 
     public void setQtdMusicas(int qtdMusicas) {
-        this.qtdMusicas = qtdMusicas;
+        if(!(Integer.class.isInstance(qtdMusicas))){
+            throw new IllegalArgumentException("APENAS INTEGER");
+        }
+        else {
+            this.qtdMusicas = qtdMusicas;
+        }
     }
 
     public float getDuracao() {
@@ -53,7 +68,12 @@ public abstract class Coletanea {
     }
 
     public void setDuracao(float duracao) {
-        this.duracao = duracao;
+        if(!(float.class.isInstance(qtdMusicas))){
+            throw new IllegalArgumentException("APENAS FLOAT");
+        }
+        else {
+            this.duracao = duracao;
+        }
     }
 
     public ArrayList<Genero> getListaGeneros() {
@@ -61,7 +81,12 @@ public abstract class Coletanea {
     }
 
     public void setListaGeneros(ArrayList<Genero> listaGeneros) {
-        this.listaGeneros = listaGeneros;
+        if(!(listaGeneros instanceof ArrayList<?>)){
+            throw new IllegalArgumentException("APENAS ARRAYLIST<GENERO>");
+        }
+        else {
+            this.listaGeneros = listaGeneros;
+        }
     }
 
     public ArrayList<Musica> getListaMusicas() {
@@ -69,7 +94,12 @@ public abstract class Coletanea {
     }
 
     public void setListaMusicas(ArrayList<Musica> listaMusicas) {
-        this.listaMusicas = listaMusicas;
+        if(!(listaMusicas instanceof ArrayList<?>)){
+            throw new IllegalArgumentException("APENAS ARRAYLIST<MUSICA>");
+        }
+        else {
+            this.listaMusicas = listaMusicas;
+        }
     }
 
     public ArrayList<Artista> getListaArtistas() {
@@ -77,7 +107,12 @@ public abstract class Coletanea {
     }
 
     public void setListaArtistas(ArrayList<Artista> listaArtistas) {
-        this.listaArtistas = listaArtistas;
+        if(!(listaArtistas instanceof ArrayList<?>)){
+            throw new IllegalArgumentException("APENAS ARRAYLIST<ARTISTA>");
+        }
+        else {
+            this.listaArtistas = listaArtistas;
+        }
     }
 
     // metodos
