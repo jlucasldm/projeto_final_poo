@@ -19,10 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5742a17-13f9-4980-a363-07ad00b73087" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/projeto_final_poo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projeto_final_poo.iml" afterDir="false" />
+    <list default="true" id="d5742a17-13f9-4980-a363-07ad00b73087" name="Default Changelist" comment="ajustando diminuirVelocidade() e aumentarVelocidade() (mas ainda com dificuldades)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/Aplicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/source/Aplicacao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/Musica.java" beforeDir="false" afterPath="$PROJECT_DIR$/source/Musica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,6 +81,14 @@
       <option name="presentableId" value="Default" />
       <updated>1607878483083</updated>
     </task>
+    <task id="LOCAL-00001" summary="ajustando diminuirVelocidade() e aumentarVelocidade() (mas ainda com dificuldades)">
+      <created>1607956815684</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607956815684</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -107,6 +113,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ajustando diminuirVelocidade() e aumentarVelocidade() (mas ainda com dificuldades)" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajustando diminuirVelocidade() e aumentarVelocidade() (mas ainda com dificuldades)" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1607913713200">
       <screen x="0" y="0" width="1366" height="728" />
@@ -116,22 +126,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1607953482994" />
-    <state width="1323" height="570" key="GridCell.Tab.0.bottom" timestamp="1607956499065">
+    <state width="1323" height="570" key="GridCell.Tab.0.bottom" timestamp="1607961661801">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="570" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607956499065" />
-    <state width="1323" height="570" key="GridCell.Tab.0.center" timestamp="1607956499064">
+    <state width="1323" height="570" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607961661801" />
+    <state width="1323" height="570" key="GridCell.Tab.0.center" timestamp="1607961661800">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="570" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1607956499064" />
-    <state width="1323" height="570" key="GridCell.Tab.0.left" timestamp="1607956499064">
+    <state width="1323" height="570" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1607961661800" />
+    <state width="1323" height="570" key="GridCell.Tab.0.left" timestamp="1607961661800">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="570" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1607956499064" />
-    <state width="1323" height="570" key="GridCell.Tab.0.right" timestamp="1607956499065">
+    <state width="1323" height="570" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1607961661800" />
+    <state width="1323" height="570" key="GridCell.Tab.0.right" timestamp="1607961661801">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="570" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1607956499065" />
+    <state width="1323" height="570" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1607961661801" />
     <state x="163" y="0" key="SettingsEditor" timestamp="1607955783857">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -140,10 +150,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="425" y="61" key="VCS.ChangeListViewerDialog/0.0.1366.728@0.0.1366.728" timestamp="1607913534691" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1607909368251">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1607956831145">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1607909368251" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1607956831145" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1607958079706">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1607958079706" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1607905703266">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -126,6 +126,12 @@ public class Musica implements Audio {
         this.listaGeneros.add(genero);
     }
 
+    public void adicionarGenero(ArrayList<Genero> listaGeneros){
+        for(Genero generoAux : listaGeneros) {
+            this.listaGeneros.add(generoAux);
+        }
+    }
+
     public void aumentarVelocidade(){
         this.duracao = this.duracao * (0.75);
     }
