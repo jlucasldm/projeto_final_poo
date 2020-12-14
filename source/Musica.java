@@ -18,7 +18,7 @@ public class Musica implements Audio {
         this.id = controleId;   //O id da instânicia Álbum possui valor atualizado do atributo estático controleId.
         this.duracao = duracao;
         this.artista = artista;
-        this.artista.getListaMusicas().add(this);   //Ao instanciar Música, ela é inserida no arrayList do Artista
+        this.artista.getMusicasProprias().add(this);   //Ao instanciar Música, ela é inserida no arrayList do Artista
         //passado como parâmetro.
         this.album = album;
         this.album.getListaMusicas().add(this); //Ao instanciar Música, ela é inserida no arrayList do Álbum

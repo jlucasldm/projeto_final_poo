@@ -5,7 +5,7 @@ public class Album extends Coletanea {
     public Album(String nome, Artista autorAlbum){
         super(nome);
         this.autorAlbum = autorAlbum;
-        this.autorAlbum.getListaAlbuns().add(this); //Ao instanciar esse álbum, insere-o na lista de álbuns do artista.
+        this.autorAlbum.getAlbumsProprios().add(this); //Ao instanciar esse álbum, insere-o na lista de álbuns do artista.
         incrementarId();    //Acrescenta em 1 o atributo estático controleId. Dessa forma, é controlada a criação de
         // todas as instâncias de Coletânea, garantindo sempre um id único ao próximo objeto instanciado.
         this.id = controleId;   //O id da instânicia Álbum possui valor atualizado do atributo estático controleId.
