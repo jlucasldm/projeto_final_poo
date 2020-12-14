@@ -1,29 +1,21 @@
 import java.util.ArrayList;
 
 public abstract class Coletanea {
-    protected String nome; //retorna
-    protected static int controleId = 0;  //retorna
-    protected int qtdMusicas; //é eum função da quantidade de elementos da lista de musicas
-    protected double duracao;  //é eum função da quantidade da duração de cada musica (isso ainda nao foi implementado)
+    protected String nome;
+    protected static int controleId = 0;    //Atributo estático cujo objetivo é gerenciar e garantir, a medida que os
+    //objetos são instanciados, um id único para cada instância.
+    protected int qtdMusicas;
+    protected double duracao;
 
-    //atributo estatico sinalizando a reproducao de musica
-    //protected ArrayList<Genero> listaGeneros = new ArrayList<>();   //retorna
-    protected ArrayList<Musica> listaMusicas = new ArrayList<>();   //retorna
-    protected ArrayList<Artista> listaArtistas = new ArrayList<>();    //retorna
+    protected ArrayList<Musica> listaMusicas = new ArrayList<>();
 
     protected Coletanea(String nome){
         this.nome = nome;
-        if(listaMusicas.size() == 0){
-            this.duracao = 0;
-        } else{
-            this.duracao = 0;
-            for(Musica aux : listaMusicas){
-                this.duracao += aux.getDuracao();
-            }
-        }
+        this.duracao = 0;
+        this.qtdMusicas = 0;
     }
 
-    // gets e sets
+    //Gets e Sets
     public String getNome() {
         return this.nome;
     }
@@ -76,21 +68,6 @@ public abstract class Coletanea {
         }
     }
 
-    /*
-    public ArrayList<Genero> getListaGeneros() {
-        return this.listaGeneros;
-    }
-
-    public void setListaGeneros(ArrayList<Genero> listaGeneros) {
-        if(!(listaGeneros instanceof ArrayList<?>)){
-            throw new IllegalArgumentException("APENAS ARRAYLIST<GENERO>");
-        }
-        else {
-            this.listaGeneros = listaGeneros;
-        }
-    }
-     */
-
     public ArrayList<Musica> getListaMusicas() {
         return this.listaMusicas;
     }
@@ -104,44 +81,22 @@ public abstract class Coletanea {
         }
     }
 
-    public ArrayList<Artista> getListaArtistas() {
-        return this.listaArtistas;
-    }
+    //Métodos
 
-    public void setListaArtistas(ArrayList<Artista> listaArtistas) {
-        if(!(listaArtistas instanceof ArrayList<?>)){
-            throw new IllegalArgumentException("APENAS ARRAYLIST<ARTISTA>");
-        }
-        else {
-            this.listaArtistas = listaArtistas;
-        }
-    }
-
-    // metodos
+    //É declarado o método para o uso de classes filhas.
     public abstract String retornaDados();
 
-    // Ao adicionar uma música, automaticamente já adiciona os artistas e os generos da música ao album
+    //Passando uma instância de Música como parâmetro, o método adicionarMusica() insere-o no arrayList da
+    //Coletânea(Playlist ou Álbum), modificando os atributos referentes à duração e quantidade de músicas.
     public void adicionarMusica(Musica musica){
         this.listaMusicas.add(musica);
         this.duracao += musica.getDuracao();
         this.qtdMusicas ++;
-
-        ArrayList<Genero> listaGeneroMusica = musica.getListaGeneros();
-
-        /*
-        for(Genero aux: listaGeneroMusica) {
-            if(!this.listaGeneros.contains(aux)) {
-                this.listaGeneros.add(aux);
-            }
-        }
-         */
-
-        if(!this.listaArtistas.contains(musica.getArtista())) {
-            this.listaArtistas.add(musica.getArtista());
-        }
     }
 
-    //pensar metodo de reproducao
+    //Passando uma instância de Música como parâmetro, o método adicionarMusica() confere se o objeto está presente no
+    //arrayList da Coletânea(Playlist ou Álbum), remove-o e modifica os atributos referentes à duração e quantidade de
+    //músicas.
     public boolean removerMusica(Musica musica){
         for(Musica aux: this.listaMusicas){
             if(musica.getId() == aux.getId()){
@@ -154,30 +109,8 @@ public abstract class Coletanea {
         return false;
     }
 
-    public boolean removerMusica(ArrayList<Musica> listaMusicasRemover){
-        for(int i = 0; i < listaMusicasRemover.size(); i++){
-            for(int j = 0; j < this.listaMusicas.size(); j++){
-                if(listaMusicasRemover.get(i).getId() == this.listaMusicas.get(j).getId()){
-                    this.listaMusicas.remove(j);
-                    this.duracao -= listaMusicasRemover.get(i).getDuracao();
-                    this.qtdMusicas--;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    /*
-    public void adicionarGenero(Genero genero){
-        this.listaGeneros.add(genero);
-    }
-     */
-    
-    public void adicionarArtista(Artista artista){
-        this.listaArtistas.add(artista);
-    }
-
+    //O método controla a quantidade de instâncias criadas. O método deve ser chamado a cada instanciamento de Álbum e
+    //Playlist.
     public static void incrementarId(){
         controleId++;
     }

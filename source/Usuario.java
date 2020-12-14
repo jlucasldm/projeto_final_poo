@@ -2,16 +2,16 @@ import java.util.ArrayList;
 
 public class Usuario extends Pessoa{
     private int id;
-    //private ArrayList<Artista> listaArtista = new ArrayList<>();
     private ArrayList<Playlist> listaPlaylists = new ArrayList<>();
 
     public Usuario(String nome){
         super(nome);
-        incrementarId();
-        this.id = controleId;
+        incrementarId();    //Acrescenta em 1 o atributo estático controleId. Dessa forma, é controlada a criação de
+        // todas as instâncias de Usuário, garantindo sempre um id único ao próximo objeto instanciado.
+        this.id = controleId;   //O id da instânicia Álbum possui valor atualizado do atributo estático controleId.
     }
 
-    //gets e sets
+    //Gets e Sets
     public String getNome() {
         return this.nome;
     }
@@ -38,21 +38,6 @@ public class Usuario extends Pessoa{
         }
     }
 
-    /*
-    public ArrayList<Artista> getListaArtista() {
-        return this.listaArtista;
-    }
-
-    public void setListaArtista(ArrayList<Artista> listaArtista) {
-        if(!(listaArtista instanceof ArrayList<?>)){
-            throw new IllegalArgumentException("APENAS ARRAYLIST<ARTISTA>");
-        }
-        else {
-            this.listaArtista = listaArtista;
-        }
-    }
-     */
-
     public ArrayList<Playlist> getListaPlaylists() {
         return this.listaPlaylists;
     }
@@ -66,20 +51,12 @@ public class Usuario extends Pessoa{
         }
     }
 
-    //metodos
-    /*
-    public void seguirArtista(Artista artista){
-        artista.getListaUsuarios().add(this);
-        this.listaArtista.add(artista);
-    }
-    */
+    //Métodos
 
     /*
-    public void adicionarPlaylist(Playlist playlist){
-        this.listaPlaylists.add(playlist);
-    }
+    O método retornaDados() retorna não apenas os dados da instância Usuário como também retorna os dados das instâncias
+    Playlists inseridas em seu arrayList.
      */
-
     public String retornaDados(){
         String playlists = "";
         if(!this.listaPlaylists.isEmpty()){
@@ -91,45 +68,4 @@ public class Usuario extends Pessoa{
                 "Id Usuario: " + this.getId() + "\n" +
                 playlists;
     }
-
-    /*
-    public void criarPlaylist(String nome){
-        Playlist playlist = new Playlist(nome,this);
-        this.listaPlaylists.add(playlist);
-    }
-
-    public boolean removerPlaylist(Playlist playlist){
-        for(Playlist aux : this.listaPlaylists){
-            if(playlist.getId() == aux.getId()){
-                this.listaPlaylists.remove(playlist);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean adicionarMusicaPlaylist(Playlist playlist, Musica musica){
-        for(Playlist aux: this.listaPlaylists){
-            if(playlist.getId() == aux.getId()){
-                playlist.adicionarMusica(musica);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean removerMusicaPlaylist(Playlist playlist, Musica musica){
-        for(Playlist aux: this.listaPlaylists){
-            if(playlist.getId() == aux.getId()){
-                for(Musica mus : aux.getListaMusicas()){
-                    if(mus.getId() == musica.getId()){
-                        aux.getListaMusicas().remove(musica);
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
-     */
 }

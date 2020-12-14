@@ -2,7 +2,8 @@ import java.util.ArrayList;
 
 public abstract class Pessoa {
     protected String nome;
-    protected static int controleId = 0;
+    protected static int controleId = 0;    //Atributo estático cujo objetivo é gerenciar e garantir, a medida que os
+    //objetos são instanciados, um id único para cada instância.
     protected ArrayList<Genero> listaGeneros = new ArrayList<>();
     protected ArrayList<Musica> listaMusicas = new ArrayList<>();
     protected ArrayList<Album> listaAlbuns = new ArrayList<>();
@@ -11,11 +12,7 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    public static void incrementarId(){
-        controleId++;
-    }
-
-    //gets e sets
+    //Gets e Sets
     public String getNome() {
         return this.nome;
     }
@@ -68,19 +65,11 @@ public abstract class Pessoa {
         }
     }
 
-    //metodos
-    /*
-    public void adicionarMusica(Musica musica){
-        this.listaMusicas.add(musica);
-    }
+    //Métodos
 
-    public void adicionarGenero(Genero genero){
-        this.listaGeneros.add(genero);
+    //O método controla a quantidade de instâncias criadas. O método deve ser chamado a cada instanciamento de Pessoa.
+    public static void incrementarId(){
+        controleId++;
     }
-
-    public void adicionarAlbum(Album album){
-        this.listaAlbuns.add(album);
-    }
-     */
 
 }

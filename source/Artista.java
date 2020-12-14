@@ -8,7 +8,7 @@ public class Artista extends Usuario{
         super(nome);
     }
 
-    //gets e sets
+    //Gets e Sets
     public ArrayList<Musica> getMusicasProprias() {
         return this.musicasProprias;
     }
@@ -25,48 +25,11 @@ public class Artista extends Usuario{
         this.albumsProprios = albumsProprios;
     }
 
-    //metodos
-
+    //Métodos
     /*
-    public Musica criarMusica(String nome, int duracao, Album album, ArrayList<Genero> listaGeneros){
-        Musica novaMusica = new Musica(nome, duracao, this, album);
-        novaMusica.setListaGeneros(listaGeneros);
-        this.listaMusicas.add(novaMusica);
-        this.musicasProprias.add(novaMusica);
-        return novaMusica;
-    }
-
-    public Album criarAlbum(String nome, ArrayList<Musica> listaMusicas){
-        Album novoAlbum = new Album(nome, this);
-        novoAlbum.setListaMusicas(listaMusicas);
-        this.listaAlbuns.add(novoAlbum);
-        this.albumsProprios.add(novoAlbum);
-        return novoAlbum;
-    }
-
-    public Album criarAlbum(String nome){
-        Album novoAlbum = new Album(nome, this);
-        this.listaAlbuns.add(novoAlbum);
-        this.albumsProprios.add(novoAlbum);
-        return novoAlbum;
-    }
+    O método retornaDados() retorna não apenas os dados da instância Artista como também retorna o atributo "nome" das
+    instâncias Músicas e Álbuns inseridas em seus arrayLists.
      */
-
-    public Album adicionarMusicasAlbum(Album album, ArrayList<Musica> listaMusica){
-        album.setListaMusicas(listaMusicas);
-        for(Musica aux : listaMusica){
-            this.listaMusicas.add(aux);
-            this.musicasProprias.add(aux);
-        }
-        return album;
-    }
-
-    public Album adicionarMusicasAlbum(Album album, Musica musica){
-        this.listaMusicas.add(musica);
-        this.musicasProprias.add(musica);
-        return album;
-    }
-
     @Override
     public String retornaDados() {
         String albums = "Albums: \n";

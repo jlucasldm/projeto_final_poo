@@ -1,16 +1,18 @@
 public class Playlist extends Coletanea {
-    private Usuario autor;  //retorna
+    private Usuario autor;
     private int id;
 
     public Playlist(String nome, Usuario autor){
         super(nome);
         this.autor = autor;
-        this.autor.getListaPlaylists().add(this);
-        incrementarId();
-        this.id = controleId;
+        this.autor.getListaPlaylists().add(this);   //Assim que Playlist é instanciada, é inserida no arrayList do
+        // Usuario passado como parâmetro.
+        incrementarId();    //Acrescenta em 1 o atributo estático controleId. Dessa forma, é controlada a criação de
+        // todas as instâncias de Coletânea, garantindo sempre um id único ao próximo objeto instanciado.
+        this.id = controleId;   //O id da instânicia Álbum possui valor atualizado do atributo estático controleId.
     }
 
-    //gets e sets
+    //Gets e Sets
     public Usuario getAutor(){
         return this.autor;
     }
@@ -38,6 +40,10 @@ public class Playlist extends Coletanea {
     }
 
     //metodos
+    /*
+    O método retornaDados() retorna não apenas os dados da instância Playlist como também retorna os dados das instâncias
+    Música inseridas em seu arrayList.
+    */
     public String retornaDados(){
         String musicas = "";
         if(!this.listaMusicas.isEmpty()){

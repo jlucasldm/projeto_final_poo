@@ -1,18 +1,17 @@
-//playlist e album são coletaneas de musicas. é pertinente utilizar uma classe abstrata
 public class Album extends Coletanea {
-    private Artista autorAlbum;
+    private Artista autorAlbum; //autor do Álbum
     private int id;
 
     public Album(String nome, Artista autorAlbum){
         super(nome);
         this.autorAlbum = autorAlbum;
-        this.autorAlbum.getListaAlbuns().add(this);
-        this.listaArtistas.add(autorAlbum);
-        incrementarId();
-        this.id = controleId;
+        this.autorAlbum.getListaAlbuns().add(this); //Ao instanciar esse álbum, insere-o na lista de álbuns do artista.
+        incrementarId();    //Acrescenta em 1 o atributo estático controleId. Dessa forma, é controlada a criação de
+        // todas as instâncias de Coletânea, garantindo sempre um id único ao próximo objeto instanciado.
+        this.id = controleId;   //O id da instânicia Álbum possui valor atualizado do atributo estático controleId.
     }
 
-    // gets e sets
+    //Gets e Sets
     public Artista getAutorAlbum(){
         return this.autorAlbum;
     }
@@ -39,9 +38,12 @@ public class Album extends Coletanea {
         }
     }
 
-    //metodos
+    //Métodos
 
-    //ajeitar para a aplicacao depois
+    /*
+    Passando uma instância de Playlist como parâmetro, o método adicionarAlbumPlaylist() itera sobre todas as músicas da
+    instância Álbum inserindo-as na playlist.
+     */
     public void adicionarAlbumPlaylist(Playlist playlist){
         for(Musica aux : this.listaMusicas){
             playlist.adicionarMusica(aux);
@@ -49,17 +51,9 @@ public class Album extends Coletanea {
     }
 
     /*
-    public boolean adicionarAlbumPlaylist(Playlist playlist, Musica musica){
-        for(Musica aux: this.listaMusicas){
-            if(musica.getId() == aux.getId()){
-                playlist.adicionarMusica(musica);
-                return true;
-            }
-        }
-        return false;
-    }
+    O método retornaDados() retorna não apenas os dados da instância Álbum como também retorna os dados das instâncias
+    Música inseridas em seu arrayList.
      */
-
     public String retornaDados(){
         String musicas = "";
         if(!this.listaMusicas.isEmpty()){

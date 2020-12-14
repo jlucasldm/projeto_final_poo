@@ -2,26 +2,34 @@ import java.util.ArrayList;
 
 public class Musica implements Audio {
     private String nome;
-    private static int controleId = 0;
+    private static int controleId = 0;  //Atributo estático cujo objetivo é gerenciar e garantir, a medida que os
+    //objetos são instanciados, um id único para cada instância.
     private int id;
     private double duracao;
     private Artista artista;
     private Album album;
-    private ArrayList<Genero> listaGeneros = new ArrayList<>();
+    private ArrayList<Genero> listaGeneros = new ArrayList<>(); //Uma música pode possuir mais de um gênero. Portanto,
+    //foi pertinente a utilização de um arrayList para a definição dessa característica.
 
     public Musica(String nome, double duracao, Artista artista, Album album){
         this.nome = nome;
-        incrementarId();
-        this.id = controleId;
+        incrementarId();    //Acrescenta em 1 o atributo estático controleId. Dessa forma, é controlada a criação de
+        // todas as instâncias de Música, garantindo sempre um id único ao próximo objeto instanciado.
+        this.id = controleId;   //O id da instânicia Álbum possui valor atualizado do atributo estático controleId.
         this.duracao = duracao;
         this.artista = artista;
-        this.artista.getListaMusicas().add(this);
+        this.artista.getListaMusicas().add(this);   //Ao instanciar Música, ela é inserida no arrayList do Artista
+        //passado como parâmetro.
         this.album = album;
-        this.album.getListaMusicas().add(this);
+        this.album.getListaMusicas().add(this); //Ao instanciar Música, ela é inserida no arrayList do Álbum
+        //passado como parâmetro.
+        //Ao instanciar Música, os atributos do Álbum passado como parâmetro são alterados. Ao inserir uma música, a
+        //duração e quantidade de músicas da coletânea deve ser alterada.
         this.album.setDuracao(this.album.getDuracao() + this.duracao);
         this.album.setQtdMusicas(this.album.getQtdMusicas() + 1);
     }
 
+    //Gets e Sets
     public void setNome(String nome){
         if(!(nome instanceof String)){
             throw new IllegalArgumentException("APENAS STRINGS");
@@ -113,7 +121,7 @@ public class Musica implements Audio {
         return this.listaGeneros;
     }
 
-    //metodos
+    //Métodos
     public void adicionarGenero(Genero genero){
         this.listaGeneros.add(genero);
     }
@@ -126,6 +134,10 @@ public class Musica implements Audio {
         this.duracao = this.duracao * (0.75);
     }
 
+    /*
+    O método retornaDados() retorna não apenas os dados da instância Música como também retorna os dados das
+    instâncias Gêneros inseridas em seu arrayList.
+     */
     public String retornaDados(){
         String generos = "";
         if(!this.listaGeneros.isEmpty()){
@@ -141,18 +153,7 @@ public class Musica implements Audio {
                 "Album: " + this.album.getNome();
     }
 
-    /*
-    //Isso nao precisa existir
-    public void adicionarMusicaPlaylist(Playlist playlist){
-        playlist.adicionarMusica(this);
-    }
-
-    //nem isso
-    public void adicionarMusicaPlaylist(Playlist playlist, Musica musica){
-        playlist.adicionarMusica(musica);
-    }
-     */
-
+    //O método controla a quantidade de instâncias criadas. O método deve ser chamado a cada instanciamento de Música.
     public static void incrementarId(){
         controleId++;
     }

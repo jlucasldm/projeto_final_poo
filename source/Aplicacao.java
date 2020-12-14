@@ -212,11 +212,20 @@ public class Aplicacao{
     public static void consultarUsuario(){
         Scanner var = new Scanner(System.in);
 
-        System.out.println("Id do usuario: ");
-        int idUsuario = var.nextInt();
+        System.out.println("Consulta por id? (s/n)");
+        String flag = var.nextLine();
 
-        for(Usuario aux : listaUsuarios){
-            if(aux.getId() == idUsuario){
+        if(flag.equals("s")){
+            System.out.println("Id do usuario: ");
+            int idUsuario = var.nextInt();
+
+            for(Usuario aux : listaUsuarios){
+                if(aux.getId() == idUsuario){
+                    System.out.println(aux.retornaDados());
+                }
+            }
+        }else{
+            for(Usuario aux : listaUsuarios){
                 System.out.println(aux.retornaDados());
             }
         }
@@ -225,11 +234,20 @@ public class Aplicacao{
     public static void consultarArtista() {
         Scanner var = new Scanner(System.in);
 
-        System.out.println("Id do artista: ");
-        int idArtista = var.nextInt();
+        System.out.println("Consulta por id? (s/n)");
+        String flag = var.nextLine();
 
-        for (Artista aux : listaArtistas){
-            if (aux.getId() == idArtista) {
+        if(flag.equals("s")){
+            System.out.println("Id do artista: ");
+            int idArtista = var.nextInt();
+
+            for (Artista aux : listaArtistas){
+                if (aux.getId() == idArtista) {
+                    System.out.println(aux.retornaDados());
+                }
+            }
+        }else{
+            for (Artista aux : listaArtistas){
                 System.out.println(aux.retornaDados());
             }
         }
@@ -238,11 +256,20 @@ public class Aplicacao{
     public static void consultarMusica() {
         Scanner var = new Scanner(System.in);
 
-        System.out.println("Id da musica: ");
-        int idMusica = var.nextInt();
+        System.out.println("Consulta por id? (s/n)");
+        String flag = var.nextLine();
 
-        for (Musica aux : listaMusicas){
-            if (aux.getId() == idMusica) {
+        if(flag.equals("s")){
+            System.out.println("Id da musica: ");
+            int idMusica = var.nextInt();
+
+            for (Musica aux : listaMusicas){
+                if (aux.getId() == idMusica) {
+                    System.out.println(aux.retornaDados());
+                }
+            }
+        }else{
+            for (Musica aux : listaMusicas){
                 System.out.println(aux.retornaDados());
             }
         }
@@ -251,11 +278,20 @@ public class Aplicacao{
     public static void consultarAlbum() {
         Scanner var = new Scanner(System.in);
 
-        System.out.println("Id do album: ");
-        int idAlbum = var.nextInt();
+        System.out.println("Consulta por id? (s/n)");
+        String flag = var.nextLine();
 
-        for (Album aux : listaAlbuns) {
-            if (aux.getId() == idAlbum) {
+        if(flag.equals("s")){
+            System.out.println("Id do album: ");
+            int idAlbum = var.nextInt();
+
+            for (Album aux : listaAlbuns) {
+                if (aux.getId() == idAlbum) {
+                    System.out.println(aux.retornaDados());
+                }
+            }
+        }else{
+            for (Album aux : listaAlbuns) {
                 System.out.println(aux.retornaDados());
             }
         }
@@ -264,11 +300,20 @@ public class Aplicacao{
     public static void consultarGenero() {
         Scanner var = new Scanner(System.in);
 
-        System.out.println("Id do genero: ");
-        int idGenero = var.nextInt();
+        System.out.println("Consulta por id? (s/n)");
+        String flag = var.nextLine();
 
-        for (Genero aux : listaGeneros) {
-            if (aux.getEnumGenero().ordinal() == idGenero-1) {
+        if(flag.equals("s")){
+            System.out.println("Id do genero: ");
+            int idGenero = var.nextInt();
+
+            for (Genero aux : listaGeneros) {
+                if (aux.getEnumGenero().ordinal() == idGenero-1) {
+                    System.out.println(aux.retornaDados());
+                }
+            }
+        }else{
+            for (Genero aux : listaGeneros) {
                 System.out.println(aux.retornaDados());
             }
         }
@@ -277,11 +322,20 @@ public class Aplicacao{
     public static void consultarPlaylist() {
         Scanner var = new Scanner(System.in);
 
-        System.out.println("Id da playlist: ");
-        int idPlaylist = var.nextInt();
+        System.out.println("Consulta por id? (s/n)");
+        String flag = var.nextLine();
 
-        for (Playlist aux : listaPlaylists){
-            if (aux.getId() == idPlaylist){
+        if(flag.equals("s")){
+            System.out.println("Id da playlist: ");
+            int idPlaylist = var.nextInt();
+
+            for (Playlist aux : listaPlaylists){
+                if (aux.getId() == idPlaylist){
+                    System.out.println(aux.retornaDados());
+                }
+            }
+        }else{
+            for (Playlist aux : listaPlaylists){
                 System.out.println(aux.retornaDados());
             }
         }
@@ -496,6 +550,47 @@ public class Aplicacao{
         }
     }
 
+    public static void showInstrucoes(){
+        System.out.println("\nINSTRUÇÕES E INFORMAÇÕES DA APLICAÇÃO\n" +
+                "Olá! Bem vindo ao projeto final da matéria Programação Orientada à Objetos (MATA55)\n" +
+                "da Universidade Federal da Bahia.\n" +
+                "Desenvolvido por Gustavo Oliveira e João Melo, essa aplicação possui como objetivo\n" +
+                "a criação e gerenciamento de uma biblioteca de música. Fez-se necessário, portanto,\n" +
+                "a criação das classes Coletanea, Album, Playlist, Pessoa, Usuario, Artista, Genero,\n" +
+                "EnumGenero, Audio, Musica e Aplicacao, visando corresponder aos requisitos do trabalho\n" +
+                "e o desenvolvimento de elementos consistentes e coerentes com a aplicação.\n\n" +
+                "1. DETALHES E INSTRUÇÕES\n" +
+                "1.1 Antes de ser possível a execução de operações como adição e remoção de músicas\n" +
+                "   em uma playlist, é necessário o cadastro de certas estruturas. O primeiro passo\n" +
+                "   para o uso consiste no cadastramento dos elementos.\n" +
+                "   Os elementos 'básicos' da aplicação são Usuário e Artista (eles são usados como\n" +
+                "   parâmetros para a criação de outros elementos e apenas precisam de um nome para\n" +
+                "   serem instanciados).\n\n" +
+                "   As classes e seus respectivos argumentos para instancialização são:\n" +
+                "   USUÁRIO:\n" +
+                "       String nome\n" +
+                "   ARTISTA:\n" +
+                "       String nome\n" +
+                "   ALBUM:\n" +
+                "       String nome\n" +
+                "       Artista autorAlbum\n" +
+                "   MUSICA:\n" +
+                "       String nome\n" +
+                "       double duracao\n" +
+                "       Artista artista\n" +
+                "       Album album\n" +
+                "   GENERO:\n" +
+                "       EnumGenero enumGenero\n" +
+                "   PLAYLIST:\n" +
+                "       String nome\n" +
+                "       Usuario autor\n" +
+                "1.2 O acesso às informações de cada objeto pode ser realizado através da consulta\n" +
+                "   por id. Vale ressaltar que optamos, durante o desenvolvimento da aplicação, assumir\n" +
+                "   que uma música pode possuir diversos gêneros. Portanto, existe uma função na aplicação\n" +
+                "   focada exclusivamente com esse propósito. Informações mais precisas a respeito\n" +
+                "   das estruturas implementadas estão presentes no código em formato de comentário.\n");
+    }
+
     public static void main(String[] args){
         int opcao;
         Scanner var = new Scanner(System.in);
@@ -524,7 +619,8 @@ public class Aplicacao{
             "17. Aposentar artista \n" +
             "18. Aumentar velocidade música \n" +
             "19. Diminuir velocidade música \n\n" +
-            "20. Sair");
+            "20. Instruções e informações\n" +
+            "21. Sair");
 
             opcao = var.nextInt();
             switch(opcao){
@@ -585,10 +681,13 @@ public class Aplicacao{
                 case 19:
                     Aplicacao.desacelerarMusica();
                     break;
+                case 20:
+                    Aplicacao.showInstrucoes();
+                    break;
                 default:
                     break;
             }
-        }while(opcao != 20);
+        }while(opcao != 21);
         //var.close();
     }
 }

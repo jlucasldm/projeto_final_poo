@@ -1,16 +1,11 @@
-import java.util.ArrayList;
-
 public class Genero{
     private EnumGenero enumGenero;
-    //private ArrayList<Album> listaAlbuns = new ArrayList<>();
-    //private ArrayList<Musica> listaMusicas = new ArrayList<>();
-    //private ArrayList<Artista> listaArtistas = new ArrayList<>();
 
     public Genero(EnumGenero enumGenero){
         this.enumGenero = enumGenero;
     }
 
-    //gets e sets
+    //Gets e Sets
     public EnumGenero getEnumGenero() {
         return this.enumGenero;
     }
@@ -24,62 +19,11 @@ public class Genero{
         }
     }
 
-    /*
-    public ArrayList<Album> getListaAlbuns() {
-        return this.listaAlbuns;
-    }
-
-    public void setListaAlbuns(ArrayList<Album> listaAlbuns) {
-        if(!(listaAlbuns instanceof ArrayList<?>)){
-            throw new IllegalArgumentException("APENAS ARRAYLIST<ALBUM>");
-        }
-        else {
-            this.listaAlbuns = listaAlbuns;
-        }
-    }
-
-    public ArrayList<Musica> getListaMusicas() {
-        return this.listaMusicas;
-    }
-
-    public void setListaMusicas(ArrayList<Musica> listaMusicas) {
-        if(!(listaMusicas instanceof ArrayList<?>)){
-            throw new IllegalArgumentException("APENAS ARRAYLIST<MUSICA>");
-        }
-        else {
-            this.listaMusicas = listaMusicas;
-        }
-    }
-
-    public ArrayList<Artista> getListaArtistas() {
-        return this.listaArtistas;
-    }
-
-    public void setListaArtistas(ArrayList<Artista> listaArtistas) {
-        if(!(listaArtistas instanceof ArrayList<?>)){
-            throw new IllegalArgumentException("APENAS ARRAYLIST<ARTISTA>");
-        }
-        else {
-            this.listaArtistas = listaArtistas;
-        }
-    }
-     */
+    //Métodos
 
     /*
-    //metodos
-    public void adicionarAlbum(Album album){
-        this.listaAlbuns.add(album);
-    }
-
-    public void adicionarMusica(Musica musica){
-        this.listaMusicas.add(musica);
-    }
-
-    public void adicionarArtista(Artista artista){
-        this.listaArtistas.add(artista);
-    }
+    O método retornaDados() retorna, em Sring, o item correspondente ao ENUM da instância Gênero.
      */
-    
     public String retornaDados(){
         return "Genero: " + this.enumGenero.toString();
     }
