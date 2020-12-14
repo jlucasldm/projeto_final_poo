@@ -529,6 +529,7 @@ public class Aplicacao{
                 Usuario danielDayLewis = (Usuario) aux;
                 listaArtistas.remove(aux);
                 listaUsuarios.add(danielDayLewis);
+                System.out.println("Artista aposentado\n");
                 return true;
             }
         }
@@ -546,6 +547,7 @@ public class Aplicacao{
         for (Musica aux : listaMusicas){
             if (aux.getId() == idMusica) {
                 aux.aumentarVelocidade();
+                System.out.println("Velocidade aumentada\n");
             }
         }
     }
@@ -561,6 +563,7 @@ public class Aplicacao{
         for (Musica aux : listaMusicas){
             if (aux.getId() == idMusica) {
                 aux.diminuirVelocidade();
+                System.out.println("Velocidade diminuida\n");
             }
         }
     }
