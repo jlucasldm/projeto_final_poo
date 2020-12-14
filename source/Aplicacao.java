@@ -9,10 +9,8 @@ public class Aplicacao{
     private static final ArrayList<Genero> listaGeneros = new ArrayList<>();
     private static final ArrayList<Playlist> listaPlaylists = new ArrayList<>();
 
-
-    //todos os metodos estao sujeitos à alteração em função das mudanças de suas classes correspondentes
+    //Método para criar uma instância de Usuário e inseri-la no arrayList da Aplicação.
     public static void cadastrarUsuario(){
-        //String nome, String id
         Scanner var = new Scanner(System.in);
         String nome;
         System.out.println("Nome do usuário: ");
@@ -25,8 +23,8 @@ public class Aplicacao{
         //var.close();
     }
 
+    //Método para criar uma instância de Artista e inseri-la no arrayList da Aplicação.
     public static void cadastrarArtista(){
-        //String nome, String id
         Scanner var = new Scanner(System.in);
         String nome;
         System.out.println("Nome do artista: ");
@@ -39,9 +37,8 @@ public class Aplicacao{
         //var.close();
     }
 
-    //função a ser removida. acesso à musicas estará disponível por meio de artista
+    //Método para criar uma instância de Música e inseri-la no arrayList da Aplicação.
     public static boolean cadastrarMusica(){
-        //String nome, float duracao, Artista artista, Album album
         Scanner var = new Scanner(System.in);
         String nome;
         System.out.println("Nome da musica: ");
@@ -51,16 +48,11 @@ public class Aplicacao{
         System.out.println("Duracao da musica: ");
         duracao = var.nextDouble();
 
-        //setando valores vazios para artista e album, já que a função será alterada
-        /*a logica consistira em solicitar o id dos respectivos objetos (album e artista), iterar sobre
-        o arrayList de cada tipo buscando a existencia da instancias. Caso possitivo, seria repassada a 
-        referencia para a criação da instancia de musica. Caso contrario, sera passado um objeto vazio*/
-
-
         int idArtista;
         System.out.println("Id do artista: ");
         idArtista = var.nextInt();
 
+        //Garantindo a existência da instância Artista no arrayList da Aplicação.
         Artista auxArtista = new Artista("");
         for(Artista aux : listaArtistas){
             if(aux.getId() == idArtista){
@@ -77,6 +69,7 @@ public class Aplicacao{
         System.out.println("Id do album: ");
         idAlbum = var.nextInt();
 
+        //Garantindo a existência da instância Álbum no arrayList da Aplicação.
         Album auxAlbum = new Album("", auxArtista);
         for(Album aux : listaAlbuns){
             if(aux.getId() == idAlbum){
@@ -98,9 +91,8 @@ public class Aplicacao{
         //var.close();
     }
 
-    //função a ser removida. acesso à musicas estará disponível por meio de artista
+    //Método para criar uma instância de Álbum e inseri-la no arrayList da Aplicação.
     public static boolean cadastrarAlbum(){
-        //String nome, Artista autorAlbum
         Scanner var = new Scanner(System.in);
         String nome;
         System.out.println("Nome do album: ");
@@ -110,6 +102,7 @@ public class Aplicacao{
         System.out.println("Id do artista: ");
         idArtista = var.nextInt();
 
+        //Garantindo a existência da instância Artista no arrayList da Aplicação.
         Artista auxArtista = new Artista("");
         for (Artista aux : listaArtistas) {
             if (aux.getId() == idArtista) {
@@ -131,7 +124,7 @@ public class Aplicacao{
         //var.close();
     }
 
-    //possívelmente depreciada
+    //Método para criar uma instância de Gênero e inseri-la no arrayList da Aplicação.
     public static void cadastrarGenero(){
         Scanner var = new Scanner(System.in);
         int indiceGenero;
@@ -169,17 +162,8 @@ public class Aplicacao{
         //var.close();
     }
 
-    //todos os generos já previamente cadastrados
-    public void criarGeneros(){
-        for(int i = 0; i < 22; i++){
-            EnumGenero enumGenero = EnumGenero.values()[i];
-            Genero aux = new Genero(enumGenero);
-            listaGeneros.add(aux);
-        }
-    }
-
+    //Método para criar uma instância de Playlist e inseri-la no arrayList da Aplicação.
     public static boolean cadastrarPlaylist(){
-        //String nome, Usuario autor
         Scanner var = new Scanner(System.in);
         String nome;
         System.out.println("Nome da playlist: ");
@@ -188,6 +172,7 @@ public class Aplicacao{
         System.out.println("Id do autor: ");
         int idAutor = var.nextInt();
 
+        //Garantindo a existência da instância Usuario no arrayList da Aplicação.
         Usuario autor = new Usuario("");
         for(Usuario usuario : listaUsuarios){
             if(usuario.getId() == idAutor){
@@ -209,12 +194,14 @@ public class Aplicacao{
         //var.close();
     }
 
+    //Itera pelos elementos do arrayList de Usuário da Aplicação, retornando os dados de uma ou todas as instâncias.
     public static void consultarUsuario(){
         Scanner var = new Scanner(System.in);
 
         System.out.println("Consulta por id? (s/n)");
         String flag = var.nextLine();
 
+        //Direcionando a busca.
         if(flag.equals("s")){
             System.out.println("Id do usuario: ");
             int idUsuario = var.nextInt();
@@ -231,12 +218,14 @@ public class Aplicacao{
         }
     }
 
+    //Itera pelos elementos do arrayList de Artista da Aplicação, retornando os dados de uma ou todas as instâncias.
     public static void consultarArtista() {
         Scanner var = new Scanner(System.in);
 
         System.out.println("Consulta por id? (s/n)");
         String flag = var.nextLine();
 
+        //Direcionando a busca.
         if(flag.equals("s")){
             System.out.println("Id do artista: ");
             int idArtista = var.nextInt();
@@ -253,12 +242,14 @@ public class Aplicacao{
         }
     }
 
+    //Itera pelos elementos do arrayList de Musica da Aplicação, retornando os dados de uma ou todas as instâncias.
     public static void consultarMusica() {
         Scanner var = new Scanner(System.in);
 
         System.out.println("Consulta por id? (s/n)");
         String flag = var.nextLine();
 
+        //Direcionando a busca.
         if(flag.equals("s")){
             System.out.println("Id da musica: ");
             int idMusica = var.nextInt();
@@ -275,12 +266,14 @@ public class Aplicacao{
         }
     }
 
+    //Itera pelos elementos do arrayList de Álbum da Aplicação, retornando os dados de uma ou todas as instâncias.
     public static void consultarAlbum() {
         Scanner var = new Scanner(System.in);
 
         System.out.println("Consulta por id? (s/n)");
         String flag = var.nextLine();
 
+        //Direcionando a busca.
         if(flag.equals("s")){
             System.out.println("Id do album: ");
             int idAlbum = var.nextInt();
@@ -297,12 +290,14 @@ public class Aplicacao{
         }
     }
 
+    //Itera pelos elementos do arrayList de Gênero da Aplicação, retornando os dados de uma ou todas as instâncias.
     public static void consultarGenero() {
         Scanner var = new Scanner(System.in);
 
         System.out.println("Consulta por id? (s/n)");
         String flag = var.nextLine();
 
+        //Direcionando a busca.
         if(flag.equals("s")){
             System.out.println("Id do genero: ");
             int idGenero = var.nextInt();
@@ -319,12 +314,14 @@ public class Aplicacao{
         }
     }
 
+    //Itera pelos elementos do arrayList de Playlist da Aplicação, retornando os dados de uma ou todas as instâncias.
     public static void consultarPlaylist() {
         Scanner var = new Scanner(System.in);
 
         System.out.println("Consulta por id? (s/n)");
         String flag = var.nextLine();
 
+        //Direcionando a busca.
         if(flag.equals("s")){
             System.out.println("Id da playlist: ");
             int idPlaylist = var.nextInt();
@@ -341,6 +338,7 @@ public class Aplicacao{
         }
     }
 
+    //Insere instância de Gênero no arrayList correspondente de uma instância de Música.
     public static void definirGeneroMusica(){
         Scanner var = new Scanner(System.in);
 
@@ -352,6 +350,8 @@ public class Aplicacao{
         System.out.println("Codigo do genero");
         indiceGenero = var.nextInt();
 
+        //Busca pela instância de Música, pelo Id, no arrayList da Aplicação. Caso encontre, busca pela instância de
+        // Gênero no arrayList da Aplicação. Caso encontre, adiciona o Gênero no arrayList da Música.
         EnumGenero enumGeneroaux = EnumGenero.values()[indiceGenero - 1];
         for(Musica aux : listaMusicas){
             if(aux.getId() == idMusica){
@@ -364,6 +364,8 @@ public class Aplicacao{
         }    
     }
 
+    //Verifica a existência da instância de Música e Playlist nos respectivos arrayLists da Aplicação e insere a Música
+    //no arrayList da Playlist.
     public static boolean adicionarMusicaPlaylist(){
         Scanner var = new Scanner(System.in);
         System.out.println("Id da musica: ");
@@ -379,6 +381,7 @@ public class Aplicacao{
         Musica musica = new Musica("Nome", (int) 30.0, auxArtista, auxAlbum);
         Playlist playlist = new Playlist("", auxUsuario);
 
+        //Checa o cadastro da instância da Música.
         for(Musica aux : listaMusicas){
             if(aux.getId() == idMusica){
                 musica = aux;
@@ -391,6 +394,7 @@ public class Aplicacao{
             return false;
         }
 
+        //Checa o cadastro da instância da Playlist.
         for(Playlist aux : listaPlaylists){
             if(aux.getId() == idPlaylist){
                 playlist = aux;
@@ -411,6 +415,8 @@ public class Aplicacao{
         return true;
     }
 
+    //Verifica a existência da instância de Música e Playlist nos respectivos arrayLists da Aplicação, e remove a Música
+    //no arrayList da Playlist, caso exista.
     public static boolean removerMusicaPlaylist(){
         Scanner var = new Scanner(System.in);
         System.out.println("Id da musica: ");
@@ -426,6 +432,7 @@ public class Aplicacao{
         Musica musica = new Musica("Nome", (int) 30.0, auxArtista, auxAlbum);
         Playlist playlist = new Playlist("", auxUsuario);
 
+        //Checa o cadastro da instância da Música.
         for(Musica aux : listaMusicas){
             if(aux.getId() == idMusica){
                 musica = aux;
@@ -438,6 +445,7 @@ public class Aplicacao{
             return false;
         }
 
+        //Checa o cadastro da instância da Playlist.
         for(Playlist aux : listaPlaylists){
             if(aux.getId() == idPlaylist){
                 playlist = aux;
@@ -463,6 +471,8 @@ public class Aplicacao{
         return true;
     }
 
+    //Verifica a existência da instância de Álbum e Playlist nos respectivos arrayLists da Aplicação, itera sobre as
+    // Músicas do Álbum e as insere no arrayList da Playlist.
     public static boolean adicionarAlbumPlaylist(){
         Scanner var = new Scanner(System.in);
         System.out.println("Id do album: ");
@@ -477,6 +487,7 @@ public class Aplicacao{
         Album album = new Album("", auxArtista);
         Playlist playlist = new Playlist("", auxUsuario);
 
+        //Checa o cadastro da instância do Album.
         for(Album aux : listaAlbuns){
             if(aux.getId() == idAlbum){
                 album = aux;
@@ -484,11 +495,12 @@ public class Aplicacao{
         }
 
         if(album.getNome().equals("")){
-            System.out.println("Album nao esta cadastrada");
+            System.out.println("Album nao esta cadastrado");
             //var.close();
             return false;
         }
 
+        //Checa o cadastro da instância da Playlist.
         for(Playlist aux : listaPlaylists){
             if(aux.getId() == idPlaylist){
                 playlist = aux;
@@ -501,8 +513,7 @@ public class Aplicacao{
             return false;
         }
 
-        album.adicionarAlbumPlaylist(playlist); //é melhor rever essa função. com certeza deve ser otimizado
-        //o lance é que existe pleonasmo em funções de adicao de musicas/albuns em playlists
+        album.adicionarAlbumPlaylist(playlist);
         System.out.println("Album adicionado");
         //var.close();
         return true;
@@ -550,6 +561,7 @@ public class Aplicacao{
         }
     }
 
+    //Método apenas para exibir informações mais detalhadas a respeito da Aplicação.
     public static void showInstrucoes(){
         System.out.println("\nINSTRUÇÕES E INFORMAÇÕES DA APLICAÇÃO\n" +
                 "Olá! Bem vindo ao projeto final da matéria Programação Orientada à Objetos (MATA55)\n" +
