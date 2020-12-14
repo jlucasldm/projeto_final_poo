@@ -19,7 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5742a17-13f9-4980-a363-07ad00b73087" name="Default Changelist" comment="" />
+    <list default="true" id="d5742a17-13f9-4980-a363-07ad00b73087" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/projeto_final_poo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projeto_final_poo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/Aplicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/source/Aplicacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/Musica.java" beforeDir="false" afterPath="$PROJECT_DIR$/source/Musica.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,7 +47,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../projetos_flutter" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Application.Aplicacao">
     <configuration name="Aplicacao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -108,22 +116,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1607953482994" />
-    <state width="1323" height="570" key="GridCell.Tab.0.bottom" timestamp="1607949707484">
+    <state width="1323" height="570" key="GridCell.Tab.0.bottom" timestamp="1607956499065">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="570" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607949707484" />
-    <state width="1323" height="570" key="GridCell.Tab.0.center" timestamp="1607949707477">
+    <state width="1323" height="570" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607956499065" />
+    <state width="1323" height="570" key="GridCell.Tab.0.center" timestamp="1607956499064">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="570" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1607949707477" />
-    <state width="1323" height="570" key="GridCell.Tab.0.left" timestamp="1607949707476">
+    <state width="1323" height="570" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1607956499064" />
+    <state width="1323" height="570" key="GridCell.Tab.0.left" timestamp="1607956499064">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="570" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1607949707476" />
-    <state width="1323" height="570" key="GridCell.Tab.0.right" timestamp="1607949707477">
+    <state width="1323" height="570" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1607956499064" />
+    <state width="1323" height="570" key="GridCell.Tab.0.right" timestamp="1607956499065">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="570" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1607949707477" />
+    <state width="1323" height="570" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1607956499065" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1607955783857">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1607955783857" />
     <state x="425" y="61" key="VCS.ChangeListViewerDialog" timestamp="1607913534691">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

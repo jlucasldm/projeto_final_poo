@@ -127,11 +127,11 @@ public class Musica implements Audio {
     }
 
     public void aumentarVelocidade(){
-        this.duracao = this.duracao * (1.25);
+        this.duracao = this.duracao * (0.75);
     }
 
     public void diminuirVelocidade(){
-        this.duracao = this.duracao * (0.75);
+        this.duracao = this.duracao * (1.25);
     }
 
     /*
