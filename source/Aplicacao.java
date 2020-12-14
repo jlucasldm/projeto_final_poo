@@ -361,7 +361,7 @@ public class Aplicacao{
                     }
                 }
             }
-        }    
+        }
     }
 
     //Verifica a existência da instância de Música e Playlist nos respectivos arrayLists da Aplicação e insere a Música
@@ -535,6 +535,8 @@ public class Aplicacao{
         return false;
     }
 
+    //altera o atributo duração da musica
+    //aumenta em 25% a velocidade (diminui o atributo duracao em 25)
     public static void acelerarMusica() {
         Scanner var = new Scanner(System.in);
 
@@ -548,6 +550,8 @@ public class Aplicacao{
         }
     }
 
+    //altera o atributo duração da musica
+    //diminui em 25% a velocidade (aumenta o atributo duracao em 25)
     public static void desacelerarMusica() {
         Scanner var = new Scanner(System.in);
 
